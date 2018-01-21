@@ -1,29 +1,42 @@
 package com.nunez.palcine.framework.respository
 
-import android.util.Log
-import com.nunez.palcine.PalCineApplication
+import com.nunez.bancaremota.BancaRemotaAplication
+import com.nunez.bancaremota.framework.respository.AuthenticationInterceptor
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class PalCineApi(app: PalCineApplication) {
+class BancappApi(app: BancaRemotaAplication) {
 
-    private var retrofit: Retrofit
-    private var palCineService: PalCineService? = null
+    private val retrofitBuilder: Retrofit.Builder = Retrofit.Builder()
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
+            .baseUrl(app.baseUrl)
 
-    init {
-        Log.d("palCineApi", "${app.baseUrl}")
-        retrofit = Retrofit.Builder()
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(MoshiConverterFactory.create())
-                .baseUrl(app.baseUrl)
-                .build()
+    private var bancappService: BancappService? = null
+    private var isAuthorized = false
+
+    fun getService(): BancappService {
+        if (bancappService == null || isAuthorized) {
+            bancappService = retrofitBuilder.build()
+                    .create(BancappService::class.java)
+        }
+        return bancappService as BancappService
     }
 
-    fun getService(): PalCineService {
-        if (palCineService == null) {
-            palCineService = retrofit.create(PalCineService::class.java)
+    fun getAuthorizedService(accessToken: String): BancappService {
+        if (bancappService == null || !isAuthorized) {
+
+            val httpClient = OkHttpClient.Builder()
+                    .addInterceptor(AuthenticationInterceptor(accessToken))
+                    .build()
+
+            val authorizedRetrofitBuilder = retrofitBuilder.client(httpClient)
+                    .build()
+
+            bancappService = authorizedRetrofitBuilder.create(BancappService::class.java)
         }
-        return palCineService as PalCineService
+        return bancappService as BancappService
     }
 }
