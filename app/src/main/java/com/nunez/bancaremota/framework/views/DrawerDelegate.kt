@@ -3,6 +3,7 @@ package com.nunez.palcine
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
+import com.nunez.bancaremota.R
 
 
 abstract class DrawerDelegate(
