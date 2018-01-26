@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true">
+
+    <EditText
+        android:id="@+id/first"
+        android:layout_width="86dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/input_play_hint_first"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/second"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/second"
+        android:layout_width="86dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/input_play_hint_second"
+        android:inputType="number"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/third"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/first"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/third"
+        android:layout_width="86dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/input_play_hint_third"
+        android:inputType="number"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/second"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:hint="@string/input_play_hint_amount"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/third"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
