@@ -7,9 +7,10 @@ import android.view.KeyEvent
 import android.view.KeyEvent.*
 import android.view.LayoutInflater
 import android.widget.EditText
-import android.widget.TextView
 import com.nunez.bancaremota.R
+import com.nunez.palcine.framework.extensions.gone
 import com.nunez.palcine.framework.extensions.show
+import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.input_play.view.*
 
 class PlayInput @JvmOverloads constructor(
@@ -18,7 +19,10 @@ class PlayInput @JvmOverloads constructor(
         defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
+    var onGameEntered: PublishSubject<Game>
+
     companion object {
+        private const val TAG = "PlayInput"
         private const val MAX_DIGITS = 2
     }
 
@@ -27,6 +31,7 @@ class PlayInput @JvmOverloads constructor(
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.input_play, this)
 
+        onGameEntered = PublishSubject.create()
         setup()
     }
 
@@ -44,48 +49,59 @@ class PlayInput @JvmOverloads constructor(
                 requestFocus()
             }
         })
+
+        amount.setOnKeyListener { v, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_UP) {
+                if (keyCode == KEYCODE_ENTER || keyCode == KEYCODE_DPAD_CENTER) {
+                    onAmountEnterHandler()
+                }
+            }
+            false
+        }
+    }
+
+    fun requestInputFocus() {
+        first.requestFocus()
     }
 
     private fun focusAmountInput() = amount.requestFocus()
 
     private fun setBehavior(editText: EditText, onMaxDigitPassed: (nextNumber: Char) -> Unit) {
-        editText.setOnEditorActionListener(this::setOnEnterPressListener)
+        var maxDigitsReached = false
 
-        var inputs = 0
-        var reached = false
-
-
-        editText.setOnKeyListener { v, keyCode, event ->
-            when {
-                event.keyCode == KEYCODE_ENTER -> {
-                    focusAmountInput()
-                    return@setOnKeyListener true
+        editText.setOnKeyListener { _, keyCode, event ->
+                when {
+                    keyCode == KEYCODE_ENTER && event.action == ACTION_UP-> {
+                        focusAmountInput()
+                        return@setOnKeyListener true
+                    }
+                    enteredANumberAfterMaxDigitsPassed(event, maxDigitsReached) -> {
+                        val number = event.number
+                        onMaxDigitPassed(number)
+                        return@setOnKeyListener false
+                    }
+                    isMaxDigitsBeenReached(editText, event.action) -> {
+                        maxDigitsReached = true
+                        return@setOnKeyListener true
+                    }
+                    else -> {
+                        maxDigitsReached = false
+                        return@setOnKeyListener false
+                    }
                 }
-                event.keyCode == KEYCODE_DEL -> {
-                    reached = false
-                    return@setOnKeyListener false
-                }
-                enteredANumberAfterMaxDigitsPassed(event, reached) -> {
-                    val number = event.number
-                    onMaxDigitPassed(number)
-                    return@setOnKeyListener true
-                }
-                isMaxDigitsBeenReached(editText) -> {
-                    reached = true
-                    return@setOnKeyListener true
-                }
-                else -> return@setOnKeyListener false
-            }
         }
     }
 
-
     private fun enteredANumberAfterMaxDigitsPassed(event: KeyEvent, reached: Boolean): Boolean {
-        return event.action == KeyEvent.ACTION_UP && reached && isKeyFromANumber(event)
+        return event.action == ACTION_UP && reached && isKeyFromANumber(event)
     }
 
-    private fun isMaxDigitsBeenReached(editText: EditText): Boolean {
-        return editText.text.toString().length == MAX_DIGITS
+    private fun isMaxDigitsBeenReached(editText: EditText, action: Int): Boolean {
+        return if(action == ACTION_DOWN){
+            editText.text.toString().length == MAX_DIGITS
+        }else {
+            false
+        }
     }
 
     private fun isKeyFromANumber(event: KeyEvent): Boolean {
@@ -108,11 +124,66 @@ class PlayInput @JvmOverloads constructor(
         }
     }
 
-    private fun setOnEnterPressListener(textView: TextView, actionId: Int, event: KeyEvent): Boolean {
-        if (event.keyCode == KEYCODE_ENTER) {
-            focusAmountInput()
+    private fun onAmountEnterHandler() {
+        val firstNumber = getNumberFromInput(first)
+        val secondNumber = getNumberFromInput(second)
+        val thirdNumber = getNumberFromInput(third)
+        val amountPerPlay = getNumberFromInput(amount)
+
+        if (areTheValuesCorrectForCreatingAGame(firstNumber, secondNumber, thirdNumber, amountPerPlay)) {
+            val game = getCorrectGamePlay(firstNumber as Int, secondNumber, thirdNumber, amountPerPlay as Int)
+            onGameEntered.onNext(game)
+            resetFields()
         }
-        return false
+    }
+
+    private fun areTheValuesCorrectForCreatingAGame(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Int?): Boolean {
+
+        if (firstNumber == null) {
+            first.error = "Can't be empty"
+            return false
+        }
+
+        if (secondNumber == null && thirdNumber != null) {
+            second.error = "Can't be empty"
+            return false
+        }
+
+        if (amountPerPlay == null) {
+            amount.error = "Can't be empty"
+            return false
+        }
+
+        return true
+    }
+
+    private fun getCorrectGamePlay(firstNumber: Int, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Int): Game {
+        return if (secondNumber == null && thirdNumber == null) {
+            Quiniela(firstNumber, amountPerPlay, Game.LOTTERY_NOT_ASSIGNED)
+        } else if (thirdNumber == null) {
+            Pale(firstNumber, secondNumber as Int, amountPerPlay, Game.LOTTERY_NOT_ASSIGNED)
+        } else {
+            Tripleta(firstNumber, secondNumber as Int, thirdNumber, amountPerPlay, Game.LOTTERY_NOT_ASSIGNED)
+        }
+    }
+
+    private fun resetFields() {
+        first.apply {
+            setText("")
+            requestFocus()
+        }
+        second.setInitialPosition()
+        third.setInitialPosition()
+        amount.setText("")
+    }
+
+    private fun getNumberFromInput(editText: EditText): Int? {
+        val enteredNumber = editText.text.toString()
+        return if (enteredNumber.isEmpty()) {
+            null
+        } else {
+            enteredNumber.toInt()
+        }
     }
 
     private fun android.widget.EditText.showAndPutNextNumber(number: Char) {
@@ -121,6 +192,12 @@ class PlayInput @JvmOverloads constructor(
             setText(number.toString())
             setSelection(this.text.length)
             requestFocus()
+        }
+    }
+    private fun android.widget.EditText.setInitialPosition() {
+        this.apply {
+            setText("")
+            gone()
         }
     }
 
