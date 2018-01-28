@@ -3,8 +3,13 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="user_prefs">user_prefs</string>
+
     <string name="input_play_hint_first">1ro</string>
     <string name="input_play_hint_second">2do</string>
     <string name="input_play_hint_third">3ro</string>
     <string name="input_play_hint_amount">monto RD$</string>
+
+    <string name="seller_screen_username">Vendedor #1</string>
+    <string name="seller_screen_app_company_name">Banca remota</string>
+    <string name="seller_screen_drawer_item_sale">Venta</string>
 </resources>
