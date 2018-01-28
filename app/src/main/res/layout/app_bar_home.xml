@@ -24,17 +24,4 @@
         android:id="@+id/contentFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
-
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:id="@+id/recycler"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:paddingBottom="40dp"/>-->
-
-    <!--<com.nunez.bancaremota.screens.seller.sales.PlayInput-->
-        <!--android:id="@+id/gameEntry"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom"/>-->
 </android.support.design.widget.CoordinatorLayout>

@@ -1,10 +1,10 @@
 package com.nunez.bancaremota.screens.seller
 
 import android.support.design.widget.NavigationView
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.view.MenuItem
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.screens.seller.sales.SalesFragment
 import com.nunez.palcine.DrawerDelegate
 import com.nunez.palcine.DrawerNavigator
 
@@ -21,7 +21,7 @@ class SellerDrawerNavitagor(
     fun navigateTo(itemId: Int) {
         val fragment = when (itemId) {
             R.id.sale -> {
-                Fragment()
+                SalesFragment()
             }
             else -> {
                 throw IllegalStateException("item not specified on the activity_home_drawer_menu")

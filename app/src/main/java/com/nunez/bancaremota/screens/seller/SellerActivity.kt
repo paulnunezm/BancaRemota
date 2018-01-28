@@ -18,5 +18,7 @@ class SellerActivity: BaseActivity() {
                 supportFragmentManager,
                 nav_view,
                 drawerManager)
+
+        drawerNavigator.navigateTo(R.id.sale)
     }
 }
