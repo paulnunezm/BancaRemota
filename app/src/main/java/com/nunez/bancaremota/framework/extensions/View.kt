@@ -1,7 +1,9 @@
 package com.nunez.palcine.framework.extensions
 
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import com.squareup.picasso.Picasso
 
 fun View.show() {
@@ -22,4 +24,8 @@ fun ImageView.loadFromUrl(url: String) {
             .fit()
             .centerCrop()
             .into(this)
+}
+
+fun EditText.setText(text: String, bufferType: TextView.BufferType = TextView.BufferType.EDITABLE){
+    this.setText(text, bufferType)
 }
