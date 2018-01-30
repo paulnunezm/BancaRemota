@@ -159,11 +159,11 @@ class PlayInput @JvmOverloads constructor(
 
     private fun getCorrectGamePlay(firstNumber: Int, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Int): Game {
         return if (secondNumber == null && thirdNumber == null) {
-            Quiniela(firstNumber, amountPerPlay, Game.LOTTERY_NOT_ASSIGNED)
+            Quiniela(firstNumber, amountPerPlay)
         } else if (thirdNumber == null) {
-            Pale(firstNumber, secondNumber as Int, amountPerPlay, Game.LOTTERY_NOT_ASSIGNED)
+            Pale(firstNumber, secondNumber as Int, amountPerPlay)
         } else {
-            Tripleta(firstNumber, secondNumber as Int, thirdNumber, amountPerPlay, Game.LOTTERY_NOT_ASSIGNED)
+            Tripleta(firstNumber, secondNumber as Int, thirdNumber, amountPerPlay)
         }
     }
 

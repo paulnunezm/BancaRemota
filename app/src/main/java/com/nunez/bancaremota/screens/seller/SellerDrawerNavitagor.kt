@@ -21,7 +21,7 @@ class SellerDrawerNavitagor(
     fun navigateTo(itemId: Int) {
         val fragment = when (itemId) {
             R.id.sale -> {
-                SalesFragment()
+                SalesFragment.newInstance()
             }
             else -> {
                 throw IllegalStateException("item not specified on the activity_home_drawer_menu")
