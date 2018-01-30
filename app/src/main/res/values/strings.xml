@@ -12,4 +12,6 @@
     <string name="seller_screen_username">Vendedor #1</string>
     <string name="seller_screen_app_company_name">Banca remota</string>
     <string name="seller_screen_drawer_item_sale">Venta</string>
+    <string name="lottery_selector_msg_select_lottery">Seleccione loterías a jugar:</string>
+    <string name="lottery_selector_msg_select">Seleccionar</string>
 </resources>
