@@ -15,12 +15,13 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/sellBtn"
+        android:id="@+id/processOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="60dp"
         android:layout_marginEnd="16dp"
+        android:visibility="invisible"
         android:src="@drawable/ic_attach_money_white_24dp"/>
 
     <com.nunez.bancaremota.screens.seller.sales.PlayInput

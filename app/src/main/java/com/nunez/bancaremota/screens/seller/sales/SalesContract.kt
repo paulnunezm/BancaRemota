@@ -12,12 +12,15 @@ interface SalesContract {
         fun showNoConnectionError()
         fun showUnexpectedError()
         fun showLoading()
+        fun showProcessOrderButton()
+        fun hideProcessOrderButton()
     }
 
     interface Presenter {
         fun observeGameEntry()
-        fun observeLotteriesEntry()
+        fun observeLotteryEntry()
         fun onSellButtonPressed()
+        fun onPlayDeleted(position: Int)
     }
 
     interface Interactor{

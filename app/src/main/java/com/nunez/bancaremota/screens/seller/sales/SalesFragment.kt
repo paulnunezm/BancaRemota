@@ -46,8 +46,12 @@ class SalesFragment : BaseFragment(), SalesContract.View {
         val service = serviceProvider.getAuthorizedService()
         interactor = SalesInteractor(ConnectivityCheckerImpl(activity),service, AndroidSchedulers.mainThread())
         presenter = SalesPresenter(this, interactor)
+        presenter.apply {
+            observeGameEntry()
+            observeLotteryEntry()
+        }
 
-        sellBtn.setOnClickListener {
+        processOrder.setOnClickListener {
             presenter.onSellButtonPressed()
         }
     }
@@ -83,6 +87,14 @@ class SalesFragment : BaseFragment(), SalesContract.View {
     }
 
     override fun showLoading() {
+    }
+
+    override fun showProcessOrderButton() {
+        processOrder.show()
+    }
+
+    override fun hideProcessOrderButton() {
+        processOrder.hide()
     }
 
     private fun refreshData() {
