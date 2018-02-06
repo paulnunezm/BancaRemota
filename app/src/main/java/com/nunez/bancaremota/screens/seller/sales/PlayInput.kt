@@ -70,25 +70,25 @@ class PlayInput @JvmOverloads constructor(
         var maxDigitsReached = false
 
         editText.setOnKeyListener { _, keyCode, event ->
-                when {
-                    keyCode == KEYCODE_ENTER && event.action == ACTION_UP-> {
-                        focusAmountInput()
-                        return@setOnKeyListener true
-                    }
-                    enteredANumberAfterMaxDigitsPassed(event, maxDigitsReached) -> {
-                        val number = event.number
-                        onMaxDigitPassed(number)
-                        return@setOnKeyListener false
-                    }
-                    isMaxDigitsBeenReached(editText, event.action) -> {
-                        maxDigitsReached = true
-                        return@setOnKeyListener true
-                    }
-                    else -> {
-                        maxDigitsReached = false
-                        return@setOnKeyListener false
-                    }
+            when {
+                keyCode == KEYCODE_ENTER && event.action == ACTION_UP -> {
+                    focusAmountInput()
+                    return@setOnKeyListener true
                 }
+                enteredANumberAfterMaxDigitsPassed(event, maxDigitsReached) -> {
+                    val number = event.number
+                    onMaxDigitPassed(number)
+                    return@setOnKeyListener false
+                }
+                isMaxDigitsBeenReached(editText, event.action) -> {
+                    maxDigitsReached = true
+                    return@setOnKeyListener true
+                }
+                else -> {
+                    maxDigitsReached = false
+                    return@setOnKeyListener false
+                }
+            }
         }
     }
 
@@ -97,9 +97,9 @@ class PlayInput @JvmOverloads constructor(
     }
 
     private fun isMaxDigitsBeenReached(editText: EditText, action: Int): Boolean {
-        return if(action == ACTION_DOWN){
+        return if (action == ACTION_DOWN) {
             editText.text.toString().length == MAX_DIGITS
-        }else {
+        } else {
             false
         }
     }
@@ -138,23 +138,66 @@ class PlayInput @JvmOverloads constructor(
     }
 
     private fun areTheValuesCorrectForCreatingAGame(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Int?): Boolean {
+        if (!checkIfNeededValuesAreSet(firstNumber, secondNumber, thirdNumber, amountPerPlay)) {
+            return false
+        } else if (areEqualNumbersOnInputs(firstNumber, secondNumber, thirdNumber)) {
+            return false
+        }
+        return true
+    }
 
+    private fun checkIfNeededValuesAreSet(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Int?): Boolean {
         if (firstNumber == null) {
-            first.error = "Can't be empty"
+            setError(first, R.string.input_play_error_cant_be_empty)
             return false
-        }
-
-        if (secondNumber == null && thirdNumber != null) {
-            second.error = "Can't be empty"
+        } else if (secondNumber == null && thirdNumber != null) {
+            setError(second, R.string.input_play_error_cant_be_empty)
             return false
-        }
-
-        if (amountPerPlay == null) {
-            amount.error = "Can't be empty"
+        } else if (amountPerPlay == null) {
+            setError(amount, R.string.input_play_error_cant_be_empty)
             return false
         }
 
         return true
+    }
+
+    private fun areEqualNumbersOnInputs(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?): Boolean {
+
+        if (thirdNumber != null) {
+            if (firstNumber == thirdNumber) {
+                third.error = context.getString(R.string.input_play_error_same_numbers, "Primero")
+                return true
+            } else {
+                third.error = null
+            }
+
+            if (secondNumber == thirdNumber) {
+                third.error = context.getString(R.string.input_play_error_same_numbers, "Segundo")
+                return true
+            } else {
+                third.error = null
+            }
+        }
+
+        if (secondNumber != null) {
+            if (firstNumber == secondNumber) {
+                second.error = context.getString(R.string.input_play_error_same_numbers, "Primero")
+                return true
+            } else {
+                second.error = null
+            }
+        }
+
+        return false
+    }
+
+
+    private fun setError(input: EditText, stringResourceId: Int) {
+        input.error = getStringResource(stringResourceId)
+    }
+
+    private fun getStringResource(resourceId: Int): String {
+        return context.getString(resourceId)
     }
 
     private fun getCorrectGamePlay(firstNumber: Int, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Int): Game {
@@ -194,6 +237,7 @@ class PlayInput @JvmOverloads constructor(
             requestFocus()
         }
     }
+
     private fun android.widget.EditText.setInitialPosition() {
         this.apply {
             setText("")
