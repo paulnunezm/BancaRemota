@@ -8,10 +8,13 @@
     <string name="input_play_hint_second">2do</string>
     <string name="input_play_hint_third">3ro</string>
     <string name="input_play_hint_amount">monto RD$</string>
+    <string name="input_play_error_cant_be_empty">No puede estar vacío</string>
+    <string name="input_play_error_same_numbers">No puede ser igual al %s</string>
+
+    <string name="lottery_selector_msg_select_lottery">Seleccione loterías a jugar:</string>
+    <string name="lottery_selector_msg_select">Seleccionar</string>
 
     <string name="seller_screen_username">Vendedor #1</string>
     <string name="seller_screen_app_company_name">Banca remota</string>
     <string name="seller_screen_drawer_item_sale">Venta</string>
-    <string name="lottery_selector_msg_select_lottery">Seleccione loterías a jugar:</string>
-    <string name="lottery_selector_msg_select">Seleccionar</string>
 </resources>
