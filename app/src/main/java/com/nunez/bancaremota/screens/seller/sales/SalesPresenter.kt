@@ -41,6 +41,13 @@ class SalesPresenter(
         }
     }
 
+
+    override fun onItemSwipe(position: Int) {
+        plays.removeAt(position)
+        view.removeItemFromList(position)
+        view.showErasedPlayMessage()
+    }
+
     private fun handleLotterySelected(l: Lottery) {
         var lottery = l
         lateinit var playWithLottery: Game

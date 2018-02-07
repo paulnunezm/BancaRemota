@@ -14,6 +14,8 @@ interface SalesContract {
         fun showLoading()
         fun showProcessOrderButton()
         fun hideProcessOrderButton()
+        fun removeItemFromList(position: Int)
+        fun showErasedPlayMessage()
     }
 
     interface Presenter {
@@ -21,6 +23,7 @@ interface SalesContract {
         fun observeLotteryEntry()
         fun onSellButtonPressed()
         fun onPlayDeleted(position: Int)
+        fun onItemSwipe(position: Int)
     }
 
     interface Interactor{

@@ -2,6 +2,8 @@ package com.nunez.bancaremota.screens.seller.sales
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import android.widget.LinearLayout
 import com.nunez.bancaremota.R
@@ -18,12 +20,16 @@ import java.util.*
 
 class SalesFragment : BaseFragment(), SalesContract.View {
 
+    private val TAG = SalesFragment::class.java.simpleName
+
     override var layoutId: Int = R.layout.sales_fragment
 
     private lateinit var presenter: SalesContract.Presenter
     private lateinit var interactor: SalesContract.Interactor
     private lateinit var gamesAdapter: GamesAdapter
     private lateinit var lotterySelector: LotterySelector
+    private lateinit var itemTouchHelperCallback: ItemTouchHelper.SimpleCallback
+    private lateinit var itemTouchHelper: ItemTouchHelper
     private var gameList = ArrayList<Game>()
 
     companion object {
@@ -44,7 +50,7 @@ class SalesFragment : BaseFragment(), SalesContract.View {
         val preferencesManager = PreferencesManagerImpl(activity)
         val serviceProvider = ServiceProvider(preferencesManager)
         val service = serviceProvider.getAuthorizedService()
-        interactor = SalesInteractor(ConnectivityCheckerImpl(activity),service, AndroidSchedulers.mainThread())
+        interactor = SalesInteractor(ConnectivityCheckerImpl(activity), service, AndroidSchedulers.mainThread())
         presenter = SalesPresenter(this, interactor)
         presenter.apply {
             observeGameEntry()
@@ -54,6 +60,8 @@ class SalesFragment : BaseFragment(), SalesContract.View {
         processOrder.setOnClickListener {
             presenter.onSellButtonPressed()
         }
+
+        addSwipeListener()
     }
 
     override fun addPlay(game: Game) {
@@ -86,6 +94,9 @@ class SalesFragment : BaseFragment(), SalesContract.View {
     override fun showUnexpectedError() {
     }
 
+    override fun showErasedPlayMessage() {
+    }
+
     override fun showLoading() {
     }
 
@@ -101,5 +112,26 @@ class SalesFragment : BaseFragment(), SalesContract.View {
         gamesAdapter = GamesAdapter(gameList)
         recycler.adapter = gamesAdapter
         gamesAdapter.notifyDataSetChanged()
+    }
+
+    override fun removeItemFromList(position: Int) {
+        gamesAdapter.onItemDismissed(position)
+    }
+
+    private fun addSwipeListener(){
+        itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT, ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?, target: RecyclerView.ViewHolder?): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder?, direction: Int) {
+                val position = viewHolder?.adapterPosition
+                position?.let {
+                    presenter.onItemSwipe(position)
+                }
+            }
+        }
+        itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(recycler)
     }
 }

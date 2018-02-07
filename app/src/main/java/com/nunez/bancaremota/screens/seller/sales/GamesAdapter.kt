@@ -10,7 +10,7 @@ import com.nunez.bancaremota.R
 
 
 class GamesAdapter(
-        private val items: List<Game>
+        private val items: ArrayList<Game>
 ) : RecyclerView.Adapter<GamesAdapter.GamesHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): GamesHolder {
@@ -24,6 +24,11 @@ class GamesAdapter(
     override fun onBindViewHolder(holder: GamesHolder?, position: Int) {
         val item = items[position]
         holder?.bind(item)
+    }
+
+    fun onItemDismissed(position: Int){
+        items.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     class GamesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
