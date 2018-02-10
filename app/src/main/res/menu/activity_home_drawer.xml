@@ -8,6 +8,29 @@
             android:id="@+id/sale"
             android:icon="@drawable/ic_ticket_black_24dp"
             android:title="@string/seller_screen_drawer_item_sale" />
-    </group>
+        <item
+            android:id="@+id/tickets"
+            android:icon="@drawable/ic_ticket_black_24dp"
+            android:title="@string/seller_screen_drawer_item_tickets" />
 
+        <item
+            android:id="@+id/winningNumbers"
+            android:icon="@drawable/ic_ticket_black_24dp"
+            android:title="@string/seller_screen_drawer_item_winning_numbers" />
+
+        <item
+            android:id="@+id/prices"
+            android:icon="@drawable/ic_ticket_black_24dp"
+            android:title="@string/seller_screen_drawer_item_prices" />
+
+        <item
+            android:title="@string/seller_screen_drawer_header_others">
+            <menu>
+                <item
+                    android:id="@+id/logout"
+                    android:icon="@drawable/ic_ticket_black_24dp"
+                    android:title="@string/seller_screen_drawer_item_logout" />
+            </menu>
+        </item>
+    </group>
 </menu>

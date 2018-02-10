@@ -18,4 +18,9 @@
     <string name="seller_screen_app_company_name">Banca remota</string>
     <string name="seller_screen_drawer_item_sale">Venta</string>
     <string name="unavailable_plays_dialog_msg">Las siguientes jugadas no se pueden realizar:</string>
+    <string name="seller_screen_drawer_item_tickets">Tickets</string>
+    <string name="seller_screen_drawer_item_winning_numbers">Números ganadoes</string>
+    <string name="seller_screen_drawer_item_prices">Valor de premios</string>
+    <string name="seller_screen_drawer_item_logout">Cerrar sesión</string>
+    <string name="seller_screen_drawer_header_others">Otros</string>
 </resources>
