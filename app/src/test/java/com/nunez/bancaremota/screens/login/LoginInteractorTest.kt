@@ -3,6 +3,8 @@ package com.nunez.bancaremota.screens.login
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
+import com.nunez.bancaremota.framework.helpers.PreferencesManager
+import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.respository.data.AccessTokenRequest
 import com.nunez.bancaremota.framework.respository.data.AccessTokenResponse
 import com.nunez.palcine.framework.exceptions.NoConnectionException
@@ -15,9 +17,11 @@ import java.util.concurrent.TimeUnit
 
 class LoginInteractorTest {
     val connectivityChecker: ConnectivityChecker = mock()
+    val serviceProvider: ServiceProvider = mock()
     val service: BancappService = mock()
+    val prefsManager : PreferencesManager = mock()
     val scheduler = TestScheduler()
-    val interactor = LoginInteractor(connectivityChecker, service, scheduler)
+    val interactor = LoginInteractor(connectivityChecker, serviceProvider, scheduler, prefsManager)
 
     val username = "peter"
     val password = "spiderman"

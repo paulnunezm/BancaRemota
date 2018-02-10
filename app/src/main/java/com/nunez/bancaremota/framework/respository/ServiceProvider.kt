@@ -4,6 +4,7 @@ import com.nunez.bancaremota.framework.helpers.PreferencesManager
 import com.nunez.palcine.framework.respository.BancappService
 import com.nunez.palcine.framework.respository.Endpoints
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -23,8 +24,15 @@ class ServiceProvider(
     }
 
     fun getAuthorizedService(): BancappService{
+
+        val logging = HttpLoggingInterceptor()
+
+        // set your desired log level
+        logging.level = HttpLoggingInterceptor.Level.BODY
+
         val httpClient = OkHttpClient.Builder()
                 .addInterceptor(AuthenticationInterceptor(preferencesManager.retrieveAccessToken()))
+                .addInterceptor(logging)
                 .build()
 
         val retrofit = Retrofit.Builder()
