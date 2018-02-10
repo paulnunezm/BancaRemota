@@ -17,4 +17,5 @@
     <string name="seller_screen_username">Vendedor #1</string>
     <string name="seller_screen_app_company_name">Banca remota</string>
     <string name="seller_screen_drawer_item_sale">Venta</string>
+    <string name="unavailable_plays_dialog_msg">Las siguientes jugadas no se pueden realizar:</string>
 </resources>

@@ -4,8 +4,7 @@ import com.nunez.bancaremota.framework.exceptions.NotAvailableLotteriesException
 import com.nunez.palcine.framework.exceptions.NoConnectionException
 
 class SalesPresenter(
-        private val view: SalesContract.View,
-        private val interactor: SalesContract.Interactor
+        private val view: SalesContract.View
 ) : SalesContract.Presenter {
 
     private lateinit var currentPlay: Game
@@ -30,7 +29,7 @@ class SalesPresenter(
 
     override fun onSellButtonPressed() {
         view.showLoading()
-        interactor.postPlays(plays)
+        view.goToTicketBriefFragment(plays)
     }
 
     override fun onPlayDeleted(position: Int) {

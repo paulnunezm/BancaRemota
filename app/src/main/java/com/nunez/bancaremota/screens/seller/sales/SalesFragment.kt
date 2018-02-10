@@ -7,25 +7,23 @@ import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import android.widget.LinearLayout
 import com.nunez.bancaremota.R
-import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
-import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.screens.seller.sales.lotterySelector.LotterySelector
+import com.nunez.bancaremota.screens.seller.sales.ticketBrief.TicketBriefFragment
 import com.nunez.palcine.BaseFragment
-import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.sales_fragment.*
 import java.util.*
 
 class SalesFragment : BaseFragment(), SalesContract.View {
 
-    private val TAG = SalesFragment::class.java.simpleName
+    private val TAG = this::class.java.simpleName
 
     override var layoutId: Int = R.layout.sales_fragment
 
     private lateinit var presenter: SalesContract.Presenter
-    private lateinit var interactor: SalesContract.Interactor
     private lateinit var gamesAdapter: GamesAdapter
     private lateinit var lotterySelector: LotterySelector
     private lateinit var itemTouchHelperCallback: ItemTouchHelper.SimpleCallback
@@ -47,11 +45,7 @@ class SalesFragment : BaseFragment(), SalesContract.View {
 
         lotterySelector = LotterySelector()
 
-        val preferencesManager = PreferencesManagerImpl(activity)
-        val serviceProvider = ServiceProvider(preferencesManager)
-        val service = serviceProvider.getAuthorizedService()
-        interactor = SalesInteractor(ConnectivityCheckerImpl(activity), service, AndroidSchedulers.mainThread())
-        presenter = SalesPresenter(this, interactor)
+        presenter = SalesPresenter(this)
         presenter.apply {
             observeGameEntry()
             observeLotteryEntry()
@@ -67,6 +61,14 @@ class SalesFragment : BaseFragment(), SalesContract.View {
     override fun addPlay(game: Game) {
         gameList.add(game)
         refreshData()
+    }
+
+    override fun goToTicketBriefFragment(plays: List<Game>) {
+        val fragment = TicketBriefFragment.newInstance(plays)
+        fragmentManager.beginTransaction()
+                .addToBackStack("sales_fragment")
+                .replace(activity.contentFrame.id, fragment)
+                .commit()
     }
 
     override fun showLotteriesSelector() {

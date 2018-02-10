@@ -13,7 +13,6 @@ class SalesPresenterTest {
     private val lottery = Lottery(1, "Leidsa")
 
     private lateinit var view: SalesContract.View
-    private val interactor: SalesContract.Interactor = mock()
     private lateinit var presenter: SalesPresenter
 
     @Test
@@ -34,7 +33,6 @@ class SalesPresenterTest {
 
         // then
         verify(view).showLoading()
-        verify(interactor).postPlays(any())
     }
 
     @Test
@@ -99,7 +97,7 @@ class SalesPresenterTest {
             on { observeGameEntry() } doReturn Observable.error(Throwable())
             on { observeSelectedLotteries() } doReturn Observable.error(Throwable())
         }
-        presenter = SalesPresenter(view, interactor)
+        presenter = SalesPresenter(view)
     }
 
 
@@ -110,6 +108,6 @@ class SalesPresenterTest {
         whenever(view.observeSelectedLotteries())
                 .thenReturn(Observable.just(lottery))
 
-        presenter = SalesPresenter(view, interactor)
+        presenter = SalesPresenter(view)
     }
 }
