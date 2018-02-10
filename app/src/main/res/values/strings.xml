@@ -23,4 +23,5 @@
     <string name="seller_screen_drawer_item_prices">Valor de premios</string>
     <string name="seller_screen_drawer_item_logout">Cerrar sesión</string>
     <string name="seller_screen_drawer_header_others">Otros</string>
+    <string name="seller_screen_drawer_item_stats">Cuadre</string>
 </resources>

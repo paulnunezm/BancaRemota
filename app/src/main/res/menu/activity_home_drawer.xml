@@ -27,6 +27,11 @@
             android:title="@string/seller_screen_drawer_header_others">
             <menu>
                 <item
+                    android:id="@+id/stats"
+                    android:icon="@drawable/ic_ticket_black_24dp"
+                    android:title="@string/seller_screen_drawer_item_stats" />
+
+                <item
                     android:id="@+id/logout"
                     android:icon="@drawable/ic_ticket_black_24dp"
                     android:title="@string/seller_screen_drawer_item_logout" />
