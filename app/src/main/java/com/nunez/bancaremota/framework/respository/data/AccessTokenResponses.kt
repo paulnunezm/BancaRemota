@@ -14,5 +14,5 @@ data class AccessTokenRequest(
 
     val grant_type: String = "password"
     val client_id: String = "2"
-    val client_secret: String = "lJrDddPmvaeWuSYi5lpKfsMfhnx0GKzQnUKOLwYV"
+    val client_secret: String = "9lAb4VcE1LKOzUagdaTgMDOEGSQx362nfkbFIGzw"
 }
