@@ -4,6 +4,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="user_prefs">user_prefs</string>
 
+    <string name="login_hint_username">Usuario</string>
+    <string name="login_hint_password">Contraseña</string>
+    <string name="login_txt_login">Iniciar sesión</string>
+
     <string name="input_play_hint_first">1ro</string>
     <string name="input_play_hint_second">2do</string>
     <string name="input_play_hint_third">3ro</string>
@@ -14,10 +18,11 @@
     <string name="lottery_selector_msg_select_lottery">Seleccione loterías a jugar:</string>
     <string name="lottery_selector_msg_select">Seleccionar</string>
 
+    <string name="unavailable_plays_dialog_msg">Las siguientes jugadas no se pueden realizar:</string>
+
     <string name="seller_screen_username">Vendedor #1</string>
     <string name="seller_screen_app_company_name">Banca remota</string>
     <string name="seller_screen_drawer_item_sale">Venta</string>
-    <string name="unavailable_plays_dialog_msg">Las siguientes jugadas no se pueden realizar:</string>
     <string name="seller_screen_drawer_item_tickets">Tickets</string>
     <string name="seller_screen_drawer_item_winning_numbers">Números ganadoes</string>
     <string name="seller_screen_drawer_item_prices">Valor de premios</string>

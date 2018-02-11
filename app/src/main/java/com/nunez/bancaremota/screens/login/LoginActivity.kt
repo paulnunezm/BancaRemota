@@ -1,14 +1,16 @@
 package com.nunez.bancaremota.screens.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.nunez.bancaremota.R
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
+import com.nunez.bancaremota.screens.seller.SellerActivity
 import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.login_activity.*
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
 
@@ -17,7 +19,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.login_activity)
 
         val preferencesManager = PreferencesManagerImpl(this)
 
@@ -60,7 +62,8 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     override fun goToSellerActivity() {
-        showToast("go to seller activity")
+        val intent = Intent(this, SellerActivity::class.java)
+        startActivity(intent)
     }
 
     private fun showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
