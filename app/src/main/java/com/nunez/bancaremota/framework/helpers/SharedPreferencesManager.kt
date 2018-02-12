@@ -44,6 +44,16 @@ class PreferencesManagerImpl(
 
     private fun getStringRes(resource: Int): String = context.getString(resource)
 
+    override fun logout() {
+        val edior = preference.edit()
+        edior.apply {
+            putString("user_name", "")
+            putString("user_email", "")
+            putString("user_status", "")
+            putString("access_token", "")
+        }
+        edior.apply()
+    }
 }
 
 interface PreferencesManager {
@@ -51,4 +61,5 @@ interface PreferencesManager {
     fun saveUserInfo(user: User)
     fun retrieveAccessToken(): String
     fun retrieveUserInfo(): User
+    fun logout()
 }
