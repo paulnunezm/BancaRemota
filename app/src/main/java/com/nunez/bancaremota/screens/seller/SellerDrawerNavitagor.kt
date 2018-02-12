@@ -10,6 +10,7 @@ import com.nunez.bancaremota.R
 import com.nunez.bancaremota.framework.helpers.PreferencesManager
 import com.nunez.bancaremota.screens.login.LoginActivity
 import com.nunez.bancaremota.screens.seller.sales.SalesFragment
+import com.nunez.bancaremota.screens.seller.stats.StatsFragment
 import com.nunez.palcine.DrawerDelegate
 import com.nunez.palcine.DrawerNavigator
 
@@ -29,6 +30,9 @@ class SellerDrawerNavitagor(
         when (itemId) {
             R.id.sale -> {
                 replaceFragmentTo(SalesFragment.newInstance())
+            }
+            R.id.commission -> {
+                replaceFragmentTo(StatsFragment.newInstance())
             }
             R.id.logout -> {
                 prefManager.logout()
