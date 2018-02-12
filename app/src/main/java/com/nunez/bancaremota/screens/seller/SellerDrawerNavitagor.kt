@@ -31,7 +31,7 @@ class SellerDrawerNavitagor(
             R.id.sale -> {
                 replaceFragmentTo(SalesFragment.newInstance())
             }
-            R.id.commission -> {
+            R.id.stats -> {
                 replaceFragmentTo(StatsFragment.newInstance())
             }
             R.id.logout -> {

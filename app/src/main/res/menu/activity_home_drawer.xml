@@ -19,11 +19,6 @@
             android:title="@string/seller_screen_drawer_item_winning_numbers" />
 
         <item
-            android:id="@+id/commission"
-            android:icon="@drawable/ic_ticket_black_24dp"
-            android:title="@string/seller_screen_drawer_item_commissions" />
-
-        <item
             android:id="@+id/prices"
             android:icon="@drawable/ic_ticket_black_24dp"
             android:title="@string/seller_screen_drawer_item_prices" />
