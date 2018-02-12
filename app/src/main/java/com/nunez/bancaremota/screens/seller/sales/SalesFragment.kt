@@ -102,6 +102,9 @@ class SalesFragment : BaseFragment(), SalesContract.View {
     override fun showLoading() {
     }
 
+    override fun showNoAvailableLotteriesError() {
+    }
+
     override fun showProcessOrderButton() {
         processOrder.show()
     }

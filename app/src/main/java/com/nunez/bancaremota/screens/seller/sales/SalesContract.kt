@@ -10,13 +10,14 @@ interface SalesContract {
         fun observeGameEntry(): Observable<Game>
         fun observeSelectedLotteries(): Observable<Lottery>
         fun removeItemFromList(position: Int)
-        fun showLotteriesSelector()
-        fun showUserBlockedError()
-        fun showNoConnectionError()
-        fun showUnexpectedError()
-        fun showLoading()
-        fun showProcessOrderButton()
         fun showErasedPlayMessage()
+        fun showLoading()
+        fun showLotteriesSelector()
+        fun showNoAvailableLotteriesError()
+        fun showNoConnectionError()
+        fun showProcessOrderButton()
+        fun showUnexpectedError()
+        fun showUserBlockedError()
     }
 
     interface Presenter {

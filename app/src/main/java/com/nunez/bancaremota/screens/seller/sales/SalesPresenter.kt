@@ -63,7 +63,7 @@ class SalesPresenter(
 
     private fun handleErrors(t: Throwable) {
         when (t) {
-            is NotAvailableLotteriesException -> view.showUnexpectedError()
+            is NotAvailableLotteriesException -> view.showNoAvailableLotteriesError()
             is NoConnectionException -> view.showNoConnectionError()
             else -> view.showUnexpectedError()
         }
