@@ -7,5 +7,6 @@ class Endpoints {
         const val USER_INFO = "api/user"
         const val GET_AVAILABLE_LOTTERIES = "api/get/lotteries"
         const val POST_PLAYS = "api/ticket"
+        const val WINNING_NUMBERS = "api/winners"
     }
 }

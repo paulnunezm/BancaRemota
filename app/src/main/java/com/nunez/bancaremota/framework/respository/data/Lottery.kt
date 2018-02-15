@@ -6,4 +6,4 @@ data class LotteryRaw(
 
 class LotteryResponse(
         val success: Boolean,
-        val result: List<LotteryRaw>)
+        val lotteries: List<LotteryRaw>)

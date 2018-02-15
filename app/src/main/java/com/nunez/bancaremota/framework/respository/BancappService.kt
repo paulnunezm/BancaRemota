@@ -6,6 +6,7 @@ import com.nunez.bancaremota.framework.respository.data.LotteryResponse
 import com.nunez.bancaremota.framework.respository.data.User
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.PlayAvailabilityResponse
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.TicketBriefInteractor
+import com.nunez.bancaremota.screens.seller.winningNumbers.WinningNumbersResponse
 import io.reactivex.Single
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -23,4 +24,7 @@ interface BancappService {
 
     @POST(Endpoints.POST_PLAYS)
     fun postPlays(@Body ticket: TicketBriefInteractor.PostTicket): Single<PlayAvailabilityResponse>
+
+    @GET(Endpoints.WINNING_NUMBERS)
+    fun getWinningNumbers(): Single<WinningNumbersResponse>
 }

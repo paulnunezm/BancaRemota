@@ -32,7 +32,7 @@ class LotterySelectorInteractor(
     private class LotteryResponseMapper : Function<LotteryResponse, List<Lottery>> {
         override fun apply(r: LotteryResponse): List<Lottery> {
             if (r.success) {
-                return r.result.map {
+                return r.lotteries.map {
                     Lottery(it.id, it.name)
                 }
             } else {
