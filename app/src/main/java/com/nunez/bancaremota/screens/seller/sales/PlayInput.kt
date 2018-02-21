@@ -8,6 +8,10 @@ import android.view.KeyEvent.*
 import android.view.LayoutInflater
 import android.widget.EditText
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.respository.data.Game
+import com.nunez.bancaremota.framework.respository.data.Pale
+import com.nunez.bancaremota.framework.respository.data.Quiniela
+import com.nunez.bancaremota.framework.respository.data.Tripleta
 import com.nunez.palcine.framework.extensions.gone
 import com.nunez.palcine.framework.extensions.show
 import io.reactivex.subjects.PublishSubject

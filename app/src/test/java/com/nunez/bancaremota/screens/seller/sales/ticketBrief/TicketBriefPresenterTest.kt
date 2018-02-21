@@ -1,9 +1,9 @@
 package com.nunez.bancaremota.screens.seller.sales.ticketBrief
 
 import com.nhaarman.mockito_kotlin.*
-import com.nunez.bancaremota.screens.seller.sales.Game
-import com.nunez.bancaremota.screens.seller.sales.Pale
-import com.nunez.bancaremota.screens.seller.sales.Quiniela
+import com.nunez.bancaremota.framework.respository.data.Game
+import com.nunez.bancaremota.framework.respository.data.Pale
+import com.nunez.bancaremota.framework.respository.data.Quiniela
 import com.nunez.palcine.framework.exceptions.NoConnectionException
 import io.reactivex.Single
 import junit.framework.Assert.assertEquals

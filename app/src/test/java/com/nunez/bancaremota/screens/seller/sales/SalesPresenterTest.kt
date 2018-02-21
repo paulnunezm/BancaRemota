@@ -1,6 +1,8 @@
 package com.nunez.bancaremota.screens.seller.sales
 
 import com.nhaarman.mockito_kotlin.*
+import com.nunez.bancaremota.framework.respository.data.Game
+import com.nunez.bancaremota.framework.respository.data.Lottery
 import io.reactivex.Observable
 import org.junit.Test
 import org.junit.runner.RunWith

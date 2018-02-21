@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.respository.data.Game
+import com.nunez.bancaremota.framework.respository.data.Pale
+import com.nunez.bancaremota.framework.respository.data.Quiniela
+import com.nunez.bancaremota.framework.respository.data.Tripleta
 
 
 class GamesAdapter(

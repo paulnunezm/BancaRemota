@@ -1,6 +1,8 @@
 package com.nunez.bancaremota.screens.seller.sales.lotterySelector
 
-import com.nunez.bancaremota.screens.seller.sales.Lottery
+import com.nunez.bancaremota.framework.respository.data.Lottery
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class LotterySelectorPresenter(
         private val view: LotterySelectorContract.View,
@@ -8,7 +10,10 @@ class LotterySelectorPresenter(
 ) : LotterySelectorContract.Presenter {
     override fun getAvailableLotteries() {
         view.showLoading()
-        interactor.requestAvailableLotteries().subscribe({
+        interactor.requestAvailableLotteries()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
             if (it.isEmpty()) {
                 view.emmitNoAvailableLotteriesError()
                 view.hide()

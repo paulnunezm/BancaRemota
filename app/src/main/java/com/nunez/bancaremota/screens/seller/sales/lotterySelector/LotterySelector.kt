@@ -12,7 +12,7 @@ import com.nunez.bancaremota.framework.exceptions.NotAvailableLotteriesException
 import com.nunez.bancaremota.framework.helpers.PreferencesManager
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
-import com.nunez.bancaremota.screens.seller.sales.Lottery
+import com.nunez.bancaremota.framework.respository.data.Lottery
 import com.nunez.palcine.framework.exceptions.NoConnectionException
 import com.nunez.palcine.framework.helpers.ConnectivityChecker
 import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl

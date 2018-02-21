@@ -1,6 +1,6 @@
 package com.nunez.bancaremota.screens.seller.sales.lotterySelector
 
-import com.nunez.bancaremota.screens.seller.sales.Lottery
+import com.nunez.bancaremota.framework.respository.data.Lottery
 import io.reactivex.Single
 
 interface LotterySelectorContract {

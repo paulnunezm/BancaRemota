@@ -2,7 +2,7 @@ package com.nunez.bancaremota.screens.seller.sales.lotterySelector
 
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.respository.data.LotteryResponse
-import com.nunez.bancaremota.screens.seller.sales.Lottery
+import com.nunez.bancaremota.framework.respository.data.Lottery
 import com.nunez.palcine.framework.exceptions.NoConnectionException
 import com.nunez.palcine.framework.helpers.ConnectivityChecker
 import io.reactivex.Scheduler

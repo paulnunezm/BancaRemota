@@ -1,6 +1,6 @@
 package com.nunez.bancaremota.screens.seller.sales.ticketBrief
 
-import com.nunez.bancaremota.screens.seller.sales.Game
+import com.nunez.bancaremota.framework.respository.data.Game
 import io.reactivex.Single
 
 

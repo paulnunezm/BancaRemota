@@ -1,4 +1,4 @@
-package com.nunez.bancaremota.screens.seller.sales
+package com.nunez.bancaremota.framework.respository.data
 
 open class Game(
         open val first: Int,
@@ -25,20 +25,20 @@ data class Lottery(
 data class Quiniela(
         override val first: Int,
         override val amount: Int
-) : Game(first, null, null, amount, Game.LOTTERY_NOT_ASSIGNED, "", Game.TYPE_QUINIELA)
+) : Game(first, null, null, amount, LOTTERY_NOT_ASSIGNED, "", TYPE_QUINIELA)
 
 data class Pale(
         override val first: Int,
         override val second: Int,
         override val amount: Int
-) : Game(first, second, null, amount, LOTTERY_NOT_ASSIGNED, "", Game.TYPE_PALE)
+) : Game(first, second, null, amount, LOTTERY_NOT_ASSIGNED, "", TYPE_PALE)
 
 data class Tripleta(
         override val first: Int,
         override val second: Int,
         override val third: Int,
         override val amount: Int
-) : Game(first, second, third, amount, LOTTERY_NOT_ASSIGNED, "", Game.TYPE_TRIPLETA)
+) : Game(first, second, third, amount, LOTTERY_NOT_ASSIGNED, "", TYPE_TRIPLETA)
 
 data class Ticket(
         val number: String,
