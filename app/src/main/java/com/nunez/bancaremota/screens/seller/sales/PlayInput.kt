@@ -132,16 +132,16 @@ class PlayInput @JvmOverloads constructor(
         val firstNumber = getNumberFromInput(first)
         val secondNumber = getNumberFromInput(second)
         val thirdNumber = getNumberFromInput(third)
-        val amountPerPlay = getNumberFromInput(amount)
+        val amountPerPlay = getNumberFromInput(amount)?.toFloat()
 
         if (areTheValuesCorrectForCreatingAGame(firstNumber, secondNumber, thirdNumber, amountPerPlay)) {
-            val game = getCorrectGamePlay(firstNumber as Int, secondNumber, thirdNumber, amountPerPlay as Int)
+            val game = getCorrectGamePlay(firstNumber as Int, secondNumber, thirdNumber, amountPerPlay as Float)
             onGameEntered.onNext(game)
             resetFields()
         }
     }
 
-    private fun areTheValuesCorrectForCreatingAGame(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Int?): Boolean {
+    private fun areTheValuesCorrectForCreatingAGame(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Float?): Boolean {
         if (!checkIfNeededValuesAreSet(firstNumber, secondNumber, thirdNumber, amountPerPlay)) {
             return false
         } else if (areEqualNumbersOnInputs(firstNumber, secondNumber, thirdNumber)) {
@@ -150,7 +150,7 @@ class PlayInput @JvmOverloads constructor(
         return true
     }
 
-    private fun checkIfNeededValuesAreSet(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Int?): Boolean {
+    private fun checkIfNeededValuesAreSet(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Float?): Boolean {
         if (firstNumber == null) {
             setError(first, R.string.input_play_error_cant_be_empty)
             return false
@@ -204,7 +204,7 @@ class PlayInput @JvmOverloads constructor(
         return context.getString(resourceId)
     }
 
-    private fun getCorrectGamePlay(firstNumber: Int, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Int): Game {
+    private fun getCorrectGamePlay(firstNumber: Int, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Float): Game {
         return if (secondNumber == null && thirdNumber == null) {
             Quiniela(firstNumber, amountPerPlay)
         } else if (thirdNumber == null) {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/infoContainer"
+        layout="@layout/ticket_pay_bottom_sheet_payment_info"/>
+
+    <include
+        android:id="@+id/successContainer"
+        layout="@layout/ticket_pay_bottom_sheet_success"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/progress"
+        android:padding= "50dp"/>
+
+    <include
+        android:id="@+id/messageContainer"
+        layout="@layout/message"
+        android:visibility="gone"
+        android:padding="50dp"/>
+
+</FrameLayout>

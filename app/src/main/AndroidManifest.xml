@@ -28,6 +28,7 @@
             android:label="@string/app_name" />
 
         <activity android:name=".screens.seller.SellerActivity" />
+        <activity android:name="com.nunez.bancaremota.screens.seller.tickets.ticketDetails.TicketDetails" />
 
     </application>
 </manifest>

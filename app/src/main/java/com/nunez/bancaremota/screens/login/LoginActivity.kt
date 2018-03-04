@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     override fun showNoConnectionError() {
-        showToast("showNoConnectionError")
+        showToast("setNoConnectionError")
     }
 
     override fun showUnexpectedError() {

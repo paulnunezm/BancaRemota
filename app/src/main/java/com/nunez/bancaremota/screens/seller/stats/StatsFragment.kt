@@ -48,11 +48,11 @@ class StatsFragment : BaseFragment(), StatsContract.View{
     }
 
     override fun showNoConnectionError() {
-        Log.d(TAG, "showNoConnectionError")
+        Log.d(TAG, "setNoConnectionError")
     }
 
     override fun showUnexpectedError() {
-        Log.d(TAG, "showUnexpectedError")
+        Log.d(TAG, "setUnexpectedErrorMessage")
     }
 
 }
