@@ -1,5 +1,7 @@
 package com.nunez.bancaremota.screens.seller.sales
 
+import com.nunez.bancaremota.framework.respository.data.Game
+import com.nunez.bancaremota.framework.respository.data.Lottery
 import io.reactivex.Observable
 
 interface SalesContract {

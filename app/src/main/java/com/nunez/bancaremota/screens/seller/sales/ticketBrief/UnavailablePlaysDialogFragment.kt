@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.bancaremota.R
-import com.nunez.bancaremota.screens.seller.sales.Game
+import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.screens.seller.sales.GamesAdapter
 import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.unvailable_plays_dialog_fragment.*

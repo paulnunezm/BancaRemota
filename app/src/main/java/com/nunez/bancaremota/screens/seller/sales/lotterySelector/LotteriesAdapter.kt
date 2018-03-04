@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import com.nunez.bancaremota.R
-import com.nunez.bancaremota.screens.seller.sales.Lottery
+import com.nunez.bancaremota.framework.respository.data.Lottery
 
 class LotteriesAdapter(
         var items: List<Lottery>

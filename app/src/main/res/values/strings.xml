@@ -29,10 +29,36 @@
     <string name="seller_screen_drawer_item_logout">Cerrar sesión</string>
     <string name="seller_screen_drawer_header_others">Otros</string>
     <string name="seller_screen_drawer_item_stats">Cuadre</string>
+
     <string name="stats_label_sales">Ventas</string>
     <string name="stats_commission">Comisión</string>
     <string name="stats_label_prices">Premios</string>
     <string name="stats_label_total">Balance Total</string>
     <string name="stats_txt_stats">Cuadre</string>
+
     <string name="seller_screen_drawer_item_commissions">Cuadre</string>
+
+    <string name="tickets_hint_search_by_id">Buscar ticket por ID</string>
+    <string name="tickets_search_action">Buscar ticket</string>
+    <string name="tickets_label_number">Número de ticket:</string>
+    <string name="tickets_label_status">Estado:</string>
+    <string name="ticket_label_amount">Valor:</string>
+    <string name="tickets_msg_winner">Premiado</string>
+    <string name="tickets_msg_blocked">Blockeado</string>
+    <string name="tickets_msg_paid">Pagado</string>
+    <string name="tickets_msg_played">Jugado</string>
+    <string name="ticket_msg_details">Detalles</string>
+    <string name="ticket_btn_pay">PAGAR</string>
+    <string name="ticket_btn_print">imprimir</string>
+
+    <string name="ticket_status_paid">Pagado</string>
+    <string name="ticket_status_blocked">Blockeado</string>
+    <string name="ticket_status_printed">Impreso</string>
+    <string name="ticket_status_unprinted">Sin imprimir</string>
+    <string name="ticket_status_winner">Premiado</string>
+    <string name="ticket_pay_bottom_sheet_to_pay_msg">Total a pagar:</string>
+    <string name="ticket_pay_bottom_sheet_error_msg_payment_unsuccessful">No se ha podido realizar el pago! \n Por favor intente más tarde.</string>
+
+    <string name="error_message_unexpected_error">Oh! ha ocurrido un error! \n Intente más tarde</string>
+    <string name="error_message_no_connection">No encontramos conexión a Internet! \n Intente más tarde.</string>
 </resources>

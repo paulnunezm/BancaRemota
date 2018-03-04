@@ -11,6 +11,7 @@ import com.nunez.bancaremota.framework.helpers.PreferencesManager
 import com.nunez.bancaremota.screens.login.LoginActivity
 import com.nunez.bancaremota.screens.seller.sales.SalesFragment
 import com.nunez.bancaremota.screens.seller.stats.StatsFragment
+import com.nunez.bancaremota.screens.seller.tickets.TicketsFragment
 import com.nunez.bancaremota.screens.seller.winningNumbers.WinningNumbersFragment
 import com.nunez.palcine.DrawerDelegate
 import com.nunez.palcine.DrawerNavigator
@@ -37,6 +38,9 @@ class SellerDrawerNavitagor(
             }
             R.id.winningNumbers -> {
                 replaceFragmentTo(WinningNumbersFragment())
+            }
+            R.id.tickets ->{
+                replaceFragmentTo(TicketsFragment())
             }
             R.id.logout -> {
                 prefManager.logout()

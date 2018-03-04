@@ -7,7 +7,7 @@ import android.view.View
 import com.nunez.bancaremota.R
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
-import com.nunez.bancaremota.screens.seller.sales.Game
+import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.screens.seller.sales.GamesAdapter
 import com.nunez.palcine.BaseFragment
 import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl

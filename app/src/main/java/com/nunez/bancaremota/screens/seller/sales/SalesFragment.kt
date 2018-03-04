@@ -7,6 +7,8 @@ import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import android.widget.LinearLayout
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.respository.data.Game
+import com.nunez.bancaremota.framework.respository.data.Lottery
 import com.nunez.bancaremota.screens.seller.sales.lotterySelector.LotterySelector
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.TicketBriefFragment
 import com.nunez.palcine.BaseFragment
