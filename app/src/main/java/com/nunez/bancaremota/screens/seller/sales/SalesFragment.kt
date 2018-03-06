@@ -11,6 +11,7 @@ import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Lottery
 import com.nunez.bancaremota.screens.seller.sales.lotterySelector.LotterySelector
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.TicketBriefFragment
+import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -44,6 +45,8 @@ class SalesFragment : BaseFragment(), SalesContract.View {
             layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
             setHasFixedSize(true)
         }
+
+        (activity as BaseActivity).changeTitle(getString(R.string.action_bar_title_sales))
 
         lotterySelector = LotterySelector()
 
@@ -125,7 +128,7 @@ class SalesFragment : BaseFragment(), SalesContract.View {
         gamesAdapter.onItemDismissed(position)
     }
 
-    private fun addSwipeListener(){
+    private fun addSwipeListener() {
         itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT, ItemTouchHelper.RIGHT) {
             override fun onMove(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?, target: RecyclerView.ViewHolder?): Boolean {
                 return false

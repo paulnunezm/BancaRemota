@@ -33,4 +33,8 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onBackPressed()
         drawerManager?.closeDrawerIfOpen()
     }
+
+    fun changeTitle(title: String){
+        toolbar?.title = title
+    }
 }
