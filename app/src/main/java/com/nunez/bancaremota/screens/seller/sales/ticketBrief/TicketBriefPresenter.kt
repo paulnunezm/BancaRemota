@@ -8,6 +8,9 @@ class TicketBriefPresenter(
         val interactor: TicketBriefContract.Interactor
 ) : TicketBriefContract.Presenter {
 
+    private lateinit var availablePlays: ArrayList<Game>
+    private lateinit var ticketInfo: TicketInfo
+
     override fun getPlaysAvailability(plays: List<Game>) {
         view.showLoading()
 
@@ -15,6 +18,7 @@ class TicketBriefPresenter(
                 .subscribe({ response: PlayAvailabilityResponse ->
                     if (response.success) {
                         view.hideLoading()
+                        ticketInfo = response.ticketInfo
                         filterPlaysAndShowCorrectOnes(plays, response)
                     } else {
                         view.hideLoading()
@@ -24,18 +28,35 @@ class TicketBriefPresenter(
                     view.hideLoading()
                     if (it is NoConnectionException) {
                         view.showConnectivityError()
-                    }else{
+                    } else {
                         view.showUnexpectedError()
                     }
                 })
     }
 
     override fun onPrintReceipt() {
+        view.showLoading()
+        interactor.printTicket(ticketInfo.id)
+                .subscribe({
+                    view.hideLoading()
+                    if (it.success) {
+                        view.printReceipt(ticketInfo, availablePlays)
+                    } else {
+                        view.showUnexpectedError()
+                    }
+                }, {
+                    view.hideLoading()
+                    if (it is NoConnectionException) {
+                        view.showConnectivityError()
+                    } else {
+                        view.showUnexpectedError()
+                    }
+                })
     }
 
     private fun filterPlaysAndShowCorrectOnes(plays: List<Game>, response: PlayAvailabilityResponse) {
         var unavailablePlays = ArrayList<Game>()
-        var availablePlays = ArrayList<Game>()
+        availablePlays = ArrayList()
 
         plays.mapIndexed { index, game ->
             if (response.game[index].code == 0) {
