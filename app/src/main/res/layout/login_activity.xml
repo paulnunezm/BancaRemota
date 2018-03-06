@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
-                android:text="Iniciar Sesión"
+                android:text="@string/login_txt_log_in"
                 android:fontFamily="sans-serif-black"
                 android:textAlignment="center"
                 android:textSize="26sp" />
