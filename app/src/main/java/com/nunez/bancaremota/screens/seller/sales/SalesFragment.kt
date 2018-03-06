@@ -1,6 +1,7 @@
 package com.nunez.bancaremota.screens.seller.sales
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
@@ -44,6 +45,7 @@ class SalesFragment : BaseFragment(), SalesContract.View {
         recycler.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
             setHasFixedSize(true)
+            addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
         }
 
         (activity as BaseActivity).changeTitle(getString(R.string.action_bar_title_sales))
