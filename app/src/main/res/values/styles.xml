@@ -4,6 +4,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/hint</item>
     </style>
     
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -16,6 +17,15 @@
 
     <style name="ToolbarTextAppearance">
         <item name="android:textColor">@color/gray_light</item>
+    </style>
+
+    <style name="LoginInput">
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">0dp</item>
     </style>
 
 </resources>
