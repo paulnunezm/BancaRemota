@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import com.nunez.bancaremota.R
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
+import com.nunez.bancaremota.framework.helpers.ReceiptPrinter
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.screens.seller.sales.GamesAdapter
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.ticket_brief_fragment.*
 
 
 class TicketBriefFragment : BaseFragment(), TicketBriefContract.View {
+
     override var layoutId: Int = R.layout.ticket_brief_fragment
 
     class ListOfGames(val games: List<Game>) // Helper class to serialize/deserialize the incoming data
@@ -59,6 +61,13 @@ class TicketBriefFragment : BaseFragment(), TicketBriefContract.View {
         presenter = TicketBriefPresenter(this, interactor)
 
         presenter.getPlaysAvailability(listOfGames.games)
+
+        printButton.show()
+        printButton.setOnClickListener { presenter.onPrintReceipt() }
+    }
+
+    override fun printReceipt(ticketInfo: TicketInfo, availablePlays: ArrayList<Game>) {
+        ReceiptPrinter(activity, ticketInfo, availablePlays )
     }
 
     override fun showLoading() {

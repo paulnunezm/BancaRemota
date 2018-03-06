@@ -13,6 +13,7 @@ interface TicketBriefContract {
         fun showUnavailablePlaysDialog(plays: List<Game>)
         fun showUnexpectedError()
         fun showConnectivityError()
+        fun printReceipt(ticketInfo: TicketInfo, availablePlays: ArrayList<Game>)
     }
 
     interface Presenter {
@@ -21,7 +22,8 @@ interface TicketBriefContract {
     }
 
 
-    interface Interactor{
+    interface Interactor {
         fun checkPlaysAvailability(plays: List<Game>): Single<PlayAvailabilityResponse>
+        fun printTicket(id: String): Single<PrintResponse>
     }
 }

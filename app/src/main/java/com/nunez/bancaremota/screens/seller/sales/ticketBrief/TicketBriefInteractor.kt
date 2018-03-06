@@ -36,5 +36,15 @@ class TicketBriefInteractor(
 
     }
 
+    override fun printTicket(id: String): Single<PrintResponse> {
+        if(connectivityChecker.isConected()){
+            return service.printTicket(id)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(androidScheduler)
+        }else{
+            return Single.error(NoConnectionException())
+        }
+    }
+
     class PostTicket(val games: List<Game>)
 }
