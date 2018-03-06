@@ -44,8 +44,7 @@ class GamesAdapter(
             when (game.type_id) {
                 Game.TYPE_QUINIELA -> {
                     gameTypeText = Quiniela::class.java.simpleName
-                    val n = FormatterHelper.twoDigitsStringFormatter(game.first)
-                    gameNumbers = itemView.context.getString(R.string.sale_screen_amount, n)
+                    gameNumbers =FormatterHelper.twoDigitsStringFormatter(game.first)
                 }
                 Game.TYPE_PALE -> {
                     gameTypeText = Pale::class.java.simpleName
