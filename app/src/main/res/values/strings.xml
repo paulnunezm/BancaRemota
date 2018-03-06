@@ -32,6 +32,7 @@
     <string name="seller_screen_drawer_item_stats">Cuadre</string>
 
     <string name="sale_screen_total_amount">Total: $%s</string>
+    <string name="sale_screen_amount">$%s</string>
 
     <string name="stats_label_sales">Ventas</string>
     <string name="stats_commission">Comisión</string>

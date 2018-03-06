@@ -1,12 +1,12 @@
 package com.nunez.bancaremota.screens.seller.sales;
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.helpers.FormatterHelper
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Pale
 import com.nunez.bancaremota.framework.respository.data.Quiniela
@@ -38,22 +38,28 @@ class GamesAdapter(
     class GamesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(game: Game) {
-            Log.v("Holder", "binding ->${game.lottery_name}")
             lateinit var gameNumbers: String
             lateinit var gameTypeText: String
 
             when (game.type_id) {
                 Game.TYPE_QUINIELA -> {
                     gameTypeText = Quiniela::class.java.simpleName
-                    gameNumbers = game.first.toString()
+                    val n = FormatterHelper.twoDigitsStringFormatter(game.first)
+                    gameNumbers = itemView.context.getString(R.string.sale_screen_amount, n)
                 }
                 Game.TYPE_PALE -> {
                     gameTypeText = Pale::class.java.simpleName
-                    gameNumbers = "${game.first}-${game.second}"
+                    val f = FormatterHelper.twoDigitsStringFormatter(game.first)
+                    val s = FormatterHelper.twoDigitsStringFormatter(game.second as Number)
+                    gameNumbers = "$f - $s"
                 }
                 Game.TYPE_TRIPLETA -> {
                     gameTypeText = Tripleta::class.java.simpleName
-                    gameNumbers = "${game.first}-${game.second}-${game.third}"
+                    val f = FormatterHelper.twoDigitsStringFormatter(game.first)
+                    val s = FormatterHelper.twoDigitsStringFormatter(game.second as Number)
+                    val t = FormatterHelper.twoDigitsStringFormatter(game.third as Number)
+                    gameNumbers = "$f - $s - $t"
+
                 }
                 else -> {
                     gameTypeText = ""
@@ -69,7 +75,7 @@ class GamesAdapter(
             lotteryName.text = game.lottery_name
             gameType.text = gameTypeText
             numbers.text = gameNumbers
-            amount.text = game.amount.toString()
+            amount.text = itemView.context.getString(R.string.sale_screen_amount, game.amount.toString())
         }
     }
 }
