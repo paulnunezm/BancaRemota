@@ -1,5 +1,6 @@
 package com.nunez.palcine.framework.extensions
 
+import android.support.design.widget.Snackbar
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -24,6 +25,10 @@ fun ImageView.loadFromUrl(url: String) {
             .fit()
             .centerCrop()
             .into(this)
+}
+
+fun View.showSnackbar(message: String, duration: Int = Snackbar.LENGTH_LONG){
+    Snackbar.make(this, message, duration).show()
 }
 
 fun EditText.setText(text: String, bufferType: TextView.BufferType = TextView.BufferType.EDITABLE){

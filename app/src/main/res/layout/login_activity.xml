@@ -1,38 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout
+    android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context="com.nunez.bancaremota.screens.login.LoginActivity">
 
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/usernameInput"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:maxLines="1"
-            android:hint="@string/login_hint_username" />
-
-        <EditText
-            android:id="@+id/passwordInput"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:maxLines="1"
-            android:hint="@string/login_hint_password" />
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/loginButton"
+    <View
+        android:id="@+id/backView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom"
-        android:text="@string/login_txt_login" />
+        android:layout_height="240dp"
+        android:background="@color/colorPrimaryDark" />
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/login_txt_log_in"
+                android:textAlignment="center"
+                android:textColor="@color/gray_dark"
+                android:textSize="26sp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/usernameInput"
+                    style="@style/LoginInput"
+                    android:drawableStart="@drawable/ic_user"
+                    android:hint="@string/login_hint_username"
+                    android:inputType="textAutoComplete|textAutoCorrect" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/passwordInput"
+                    style="@style/LoginInput"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:hint="@string/login_hint_password"
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/loginButton"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="160dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="@string/login_txt_login" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <include layout="@layout/progress"/>
 </FrameLayout>
