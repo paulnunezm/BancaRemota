@@ -122,6 +122,7 @@ class SalesFragment : BaseFragment(), SalesContract.View {
 
     private fun refreshData() {
         gamesAdapter = GamesAdapter(gameList)
+        totalAmount.text = getString(R.string.sale_screen_total_amount, gameList.sumByDouble { it.amount.toDouble() }.toString())
         recycler.adapter = gamesAdapter
         gamesAdapter.notifyDataSetChanged()
     }
@@ -140,6 +141,7 @@ class SalesFragment : BaseFragment(), SalesContract.View {
                 val position = viewHolder?.adapterPosition
                 position?.let {
                     presenter.onItemSwipe(position)
+                    refreshData()
                 }
             }
         }
