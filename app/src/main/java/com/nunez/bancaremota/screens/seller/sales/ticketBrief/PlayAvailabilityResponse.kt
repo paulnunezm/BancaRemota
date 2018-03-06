@@ -4,6 +4,7 @@ import com.squareup.moshi.Json
 
 class PlayAvailabilityResponse(
         val success: Boolean,
+        @Json(name = "ticket_number") val ticketInfo: TicketInfo,
         @Json(name = "game_status") val game: List<PlayAvailability>)
 
 class PlayAvailability(
@@ -17,3 +18,8 @@ class PlayAvailability(
         const val CODE_LIMIT_EXCEEDED = 3
     }
 }
+
+class TicketInfo(
+        val id:String,
+        val number: String,
+        @Json(name = "created_at") val createdAt: String)
