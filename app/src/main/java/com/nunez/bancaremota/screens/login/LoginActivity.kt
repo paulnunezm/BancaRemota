@@ -2,15 +2,19 @@ package com.nunez.bancaremota.screens.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.nunez.bancaremota.R
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.screens.seller.SellerActivity
+import com.nunez.palcine.framework.extensions.gone
+import com.nunez.palcine.framework.extensions.show
 import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.login_activity.*
+import kotlinx.android.synthetic.main.progress.*
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
 
@@ -38,27 +42,29 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     override fun showLoginError() {
-        showToast("showLoginError")
+      Snackbar.make(container, getString(R.string.error_message_login), Snackbar.LENGTH_LONG).show()
     }
 
     override fun showUserBlockedError() {
-        showToast("showUserBlockedError")
+        Snackbar.make(container, getString(R.string.error_message_blocked_user), Snackbar.LENGTH_LONG).show()
     }
 
     override fun showNoConnectionError() {
-        showToast("setNoConnectionError")
+        Snackbar.make(container, getString(R.string.error_message_no_connection), Snackbar.LENGTH_LONG).show()
     }
 
     override fun showUnexpectedError() {
-        showToast("unexpectedError")
+        Snackbar.make(container, getString(R.string.error_message_unexpected_error), Snackbar.LENGTH_LONG).show()
     }
 
     override fun showLoading() {
-        showToast("loading")
+        card.gone()
+        loadingView.show()
     }
 
     override fun hideLoading() {
-        showToast("hideLoading")
+        card.show()
+        loadingView.gone()
     }
 
     override fun goToSellerActivity() {
