@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nunez.bancaremota.screens.login.LoginActivity"
-    android:animateLayoutChanges="true">
+    android:animateLayoutChanges="true"
+    tools:context="com.nunez.bancaremota.screens.login.LoginActivity">
 
     <View
         android:id="@+id/backView"
@@ -28,10 +28,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
-                android:text="@string/login_txt_log_in"
                 android:fontFamily="sans-serif-black"
-                android:textColor="@color/gray_dark"
+                android:text="@string/login_txt_log_in"
                 android:textAlignment="center"
+                android:textColor="@color/gray_dark"
                 android:textSize="26sp" />
 
             <android.support.design.widget.TextInputLayout
@@ -39,11 +39,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    style="@style/LoginInput"
                     android:id="@+id/usernameInput"
+                    style="@style/LoginInput"
                     android:drawableStart="@drawable/ic_user"
-                    android:inputType="textAutoComplete|textAutoCorrect"
-                    android:hint="@string/login_hint_username"  />
+                    android:hint="@string/login_hint_username"
+                    android:inputType="textAutoComplete|textAutoCorrect" />
             </android.support.design.widget.TextInputLayout>
 
 
@@ -52,11 +52,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    style="@style/LoginInput"
                     android:id="@+id/passwordInput"
+                    style="@style/LoginInput"
                     android:drawableStart="@drawable/ic_lock"
                     android:hint="@string/login_hint_password"
-                    android:inputType="textPassword"  />
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
             <Button
