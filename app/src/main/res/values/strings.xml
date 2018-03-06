@@ -33,6 +33,7 @@
 
     <string name="sale_screen_total_amount">Total: $%s</string>
     <string name="sale_screen_amount">$%s</string>
+    <string name="sale_message_erased_play">La jugada fue borrada!</string>
 
     <string name="stats_label_sales">Ventas</string>
     <string name="stats_commission">Comisión</string>
@@ -67,6 +68,7 @@
     <string name="error_message_no_connection">No encontramos conexión a Internet! \nIntente más tarde.</string>
     <string name="error_message_login">Hubo un error al tratar de iniciar sesión! \nRevise sus datos o intente más tarde.</string>
     <string name="error_message_blocked_user">Su usario está bloqueado!</string>
+    <string name="error_message_no_available_lotteries">No hay loterías disponibles!</string>
 
     <string name="action_bar_title_sales">Venta de tickets</string>
 </resources>

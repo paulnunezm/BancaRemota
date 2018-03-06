@@ -14,6 +14,7 @@ import com.nunez.bancaremota.screens.seller.sales.lotterySelector.LotterySelecto
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.TicketBriefFragment
 import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
+import com.nunez.palcine.framework.extensions.showSnackbar
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -95,21 +96,26 @@ class SalesFragment : BaseFragment(), SalesContract.View {
     }
 
     override fun showUserBlockedError() {
+        container.showSnackbar(activity.getString(R.string.error_message_blocked_user))
     }
 
     override fun showNoConnectionError() {
+        container.showSnackbar(activity.getString(R.string.error_message_no_connection))
     }
 
     override fun showUnexpectedError() {
+        container.showSnackbar(activity.getString(R.string.error_message_unexpected_error))
     }
 
     override fun showErasedPlayMessage() {
+        container.showSnackbar(activity.getString(R.string.sale_message_erased_play))
     }
 
     override fun showLoading() {
     }
 
     override fun showNoAvailableLotteriesError() {
+        container.showSnackbar(activity.getString(R.string.error_message_no_available_lotteries))
     }
 
     override fun showProcessOrderButton() {
