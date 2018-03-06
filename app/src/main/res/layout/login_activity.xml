@@ -24,9 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:maxLines="1"
+            android:inputType="textPassword"
             android:hint="@string/login_hint_password" />
     </LinearLayout>
-
 
     <Button
         android:id="@+id/loginButton"
