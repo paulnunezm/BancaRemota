@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nunez.bancaremota.screens.login.LoginActivity">
+    tools:context="com.nunez.bancaremota.screens.login.LoginActivity"
+    android:animateLayoutChanges="true">
 
     <View
+        android:id="@+id/backView"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:background="@color/colorPrimaryDark" />
@@ -27,24 +29,36 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
                 android:text="Iniciar Sesión"
+                android:fontFamily="sans-serif-black"
                 android:textAlignment="center"
                 android:textSize="26sp" />
 
-            <EditText
-                android:id="@+id/usernameInput"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:inputType="textAutoComplete|textAutoCorrect"
-                android:hint="@string/login_hint_username"
-                android:maxLines="1" />
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/passwordInput"
+                <EditText
+                    android:id="@+id/usernameInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textAutoComplete|textAutoCorrect"
+                    android:hint="@string/login_hint_username"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="@string/login_hint_password"
-                android:inputType="textPassword"
-                android:maxLines="1" />
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/passwordInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/login_hint_password"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/loginButton"
