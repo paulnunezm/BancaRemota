@@ -39,12 +39,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    style="@style/LoginInput"
                     android:id="@+id/usernameInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:drawableStart="@drawable/ic_user"
                     android:inputType="textAutoComplete|textAutoCorrect"
-                    android:hint="@string/login_hint_username"
-                    android:maxLines="1" />
+                    android:hint="@string/login_hint_username"  />
             </android.support.design.widget.TextInputLayout>
 
 
@@ -53,12 +52,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    style="@style/LoginInput"
                     android:id="@+id/passwordInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:drawableStart="@drawable/ic_lock"
                     android:hint="@string/login_hint_password"
-                    android:inputType="textPassword"
-                    android:maxLines="1" />
+                    android:inputType="textPassword"  />
             </android.support.design.widget.TextInputLayout>
 
             <Button
