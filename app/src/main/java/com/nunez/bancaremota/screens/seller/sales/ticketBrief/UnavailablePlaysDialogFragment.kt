@@ -1,6 +1,7 @@
 package com.nunez.bancaremota.screens.seller.sales.ticketBrief
 
 import android.os.Bundle
+import android.support.design.widget.BottomSheetDialogFragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,7 @@ import com.nunez.bancaremota.screens.seller.sales.GamesAdapter
 import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.unvailable_plays_dialog_fragment.*
 
-class UnavailablePlaysDialogFragment : android.support.v4.app.DialogFragment() {
+class UnavailablePlaysDialogFragment : BottomSheetDialogFragment() {
 
     companion object {
         const val TAG = "UnavailablePlaysDialog"

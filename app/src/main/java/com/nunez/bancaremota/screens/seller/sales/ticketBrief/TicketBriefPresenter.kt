@@ -20,7 +20,6 @@ class TicketBriefPresenter(
                     if (response.success) {
                         view.hideLoading()
                         ticketInfo = response.ticketInfo
-                        view.showTicketNumber(FormatterHelper.getFormattedTicketNumber(ticketInfo.number))
                         filterPlaysAndShowCorrectOnes(plays, response)
                     } else {
                         view.hideLoading()
@@ -74,6 +73,9 @@ class TicketBriefPresenter(
 
     private fun handleAvailablePlays() {
         if (availablePlays.isNotEmpty()) {
+            ticketInfo?.number.let {
+                view.showTicketNumber(FormatterHelper.getFormattedTicketNumber(it as String))
+            }
             view.showTotalAmount(getFormattedTotalAmount())
             view.showAvailablePlays(availablePlays)
         } else {
