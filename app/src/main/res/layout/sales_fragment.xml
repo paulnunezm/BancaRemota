@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/container"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,16 +9,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="8dp">
 
-        <include layout="@layout/sales_header"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
+
+            <include layout="@layout/sales_header" />
+        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="50dp"
-            android:scrollbars="horizontal"
+            android:scrollbars="vertical"
             tools:listitem="@layout/item_sales_game" />
     </LinearLayout>
 
@@ -26,9 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
         android:paddingStart="8dp"
-        android:paddingEnd="8dp">
+        android:paddingTop="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,9 +50,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:textStyle="bold" />
 
             <com.nunez.bancaremota.screens.seller.sales.PlayInput
                 android:id="@+id/gameEntry"
@@ -61,5 +70,5 @@
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_attach_money_white_24dp"
         android:visibility="invisible"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 </FrameLayout>

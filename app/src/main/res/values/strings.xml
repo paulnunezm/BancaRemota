@@ -32,7 +32,6 @@
     <string name="seller_screen_drawer_item_stats">Cuadre</string>
 
     <string name="sale_screen_total_amount">Total: $%s</string>
-    <string name="sale_screen_amount">$%s</string>
     <string name="sale_message_erased_play">La jugada fue borrada!</string>
 
     <string name="stats_label_sales">Ventas</string>
@@ -69,7 +68,20 @@
     <string name="error_message_login">Hubo un error al tratar de iniciar sesión! \nRevise sus datos o intente más tarde</string>
     <string name="error_message_blocked_user">Su usario está bloqueado!</string>
     <string name="error_message_no_available_lotteries">No hay loterías disponibles!\nPor favor intente más tarte</string>
+    <string name="error_message_must_select_at_least_one_lottery">¡Debe de seleccionar al menos una lotería!</string>
+    <string name="error_message_no_available_plays">No hay jugadas válidas disponibles para jugar</string>
 
     <string name="action_bar_title_sales">Venta de tickets</string>
-    <string name="error_message_must_select_at_least_one_lottery">¡Debe de seleccionar al menos una lotería!</string>
+    <string name="action_bar_title_ticket_brief">Comprobante</string>
+
+    <string name="format_amount">$%s</string>
+
+    <string name="game_header_lottery">Lotería</string>
+    <string name="game_header_type">Tipo</string>
+    <string name="game_header_plays">Jugadas</string>
+    <string name="game_header_amount">Monto</string>
+
+    <string name="ticket_brief_number">Número de ticket:</string>
+    <string name="ticket_brief_total_amout">Monto Total:</string>
+
 </resources>

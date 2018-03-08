@@ -1,5 +1,6 @@
 package com.nunez.bancaremota.screens.seller.sales.ticketBrief
 
+import com.nunez.bancaremota.framework.helpers.FormatterHelper
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.palcine.framework.exceptions.NoConnectionException
 
@@ -19,6 +20,7 @@ class TicketBriefPresenter(
                     if (response.success) {
                         view.hideLoading()
                         ticketInfo = response.ticketInfo
+                        view.showTicketNumber(FormatterHelper.getFormattedTicketNumber(ticketInfo.number))
                         filterPlaysAndShowCorrectOnes(plays, response)
                     } else {
                         view.hideLoading()
@@ -55,7 +57,7 @@ class TicketBriefPresenter(
     }
 
     private fun filterPlaysAndShowCorrectOnes(plays: List<Game>, response: PlayAvailabilityResponse) {
-        var unavailablePlays = ArrayList<Game>()
+        val unavailablePlays = ArrayList<Game>()
         availablePlays = ArrayList()
 
         plays.mapIndexed { index, game ->
@@ -67,11 +69,26 @@ class TicketBriefPresenter(
         }
 
         showUnavailablePlaysIfTheyAre(unavailablePlays)
-        view.showAvailablePlays(availablePlays)
+        handleAvailablePlays()
+    }
+
+    private fun handleAvailablePlays() {
+        if (availablePlays.isNotEmpty()) {
+            view.showTotalAmount(getFormattedTotalAmount())
+            view.showAvailablePlays(availablePlays)
+        } else {
+            view.showNoAvailablePlaysError()
+        }
+    }
+
+    private fun getFormattedTotalAmount(): String {
+        return FormatterHelper.twoDigitsStringFormatter(availablePlays.sumByDouble {
+            it.amount.toDouble()
+        })
     }
 
     private fun showUnavailablePlaysIfTheyAre(list: ArrayList<Game>) {
-        if (list.size > 1) {
+        if (list.isNotEmpty()) {
             view.showUnavailablePlaysDialog(list)
         }
     }

@@ -1,19 +1,24 @@
 package com.nunez.bancaremota.screens.seller.sales.ticketBrief
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.helpers.MessageViewHandler
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.helpers.ReceiptPrinter
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.screens.seller.sales.GamesAdapter
+import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
+import com.nunez.palcine.framework.extensions.gone
+import com.nunez.palcine.framework.extensions.show
 import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
 import com.squareup.moshi.Moshi
 import io.reactivex.android.schedulers.AndroidSchedulers
+import kotlinx.android.synthetic.main.progress.*
 import kotlinx.android.synthetic.main.ticket_brief_fragment.*
 
 
@@ -25,6 +30,7 @@ class TicketBriefFragment : BaseFragment(), TicketBriefContract.View {
 
     lateinit var interactor: TicketBriefContract.Interactor
     lateinit var presenter: TicketBriefContract.Presenter
+    lateinit var messageViewHandler: MessageViewHandler
 
     companion object {
         const val TAG = "TicketBrief"
@@ -47,6 +53,8 @@ class TicketBriefFragment : BaseFragment(), TicketBriefContract.View {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (activity as BaseActivity).changeTitle(activity.getString(R.string.action_bar_title_ticket_brief))
+
         val serializedPlays = arguments.getSerializable(ARG_PLAYS)
         val moshi = Moshi.Builder().build()
         val jsonAdapter = moshi.adapter(ListOfGames::class.java)
@@ -60,29 +68,42 @@ class TicketBriefFragment : BaseFragment(), TicketBriefContract.View {
         interactor = TicketBriefInteractor(connectiviyChecker, service, androidScheduler)
         presenter = TicketBriefPresenter(this, interactor)
 
+        messageViewHandler = MessageViewHandler(messageContainer)
+
         presenter.getPlaysAvailability(listOfGames.games)
 
-        printButton.show()
         printButton.setOnClickListener { presenter.onPrintReceipt() }
     }
 
     override fun printReceipt(ticketInfo: TicketInfo, availablePlays: ArrayList<Game>) {
-        ReceiptPrinter(activity, ticketInfo, availablePlays )
+        ReceiptPrinter(activity, ticketInfo, availablePlays)
     }
 
     override fun showLoading() {
-        Log.d(TAG, "show loading")
+        content.gone()
+        loadingView.show()
     }
 
     override fun hideLoading() {
-        Log.d(TAG, "hide loading")
+        loadingView.gone()
     }
 
     override fun showAvailablePlays(plays: List<Game>) {
+        content.show()
+        printButton.show()
         availablePlaysRecycler.apply {
             adapter = GamesAdapter(plays as ArrayList<Game>)
             layoutManager = LinearLayoutManager(activity)
+            addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
         }
+    }
+
+    override fun showTicketNumber(newTicketNumber: String) {
+        ticketNumber.text = newTicketNumber
+    }
+
+    override fun showTotalAmount(newTicketAmount: String) {
+        totalAmount.text = activity.getString(R.string.format_amount, newTicketAmount)
     }
 
     override fun showUnavailablePlaysDialog(plays: List<Game>) {
@@ -92,10 +113,14 @@ class TicketBriefFragment : BaseFragment(), TicketBriefContract.View {
     }
 
     override fun showUnexpectedError() {
-        Log.d(TAG, "show unexpected error")
+        messageViewHandler.showUnexpectedError()
     }
 
     override fun showConnectivityError() {
-        Log.d(TAG, "show connectivity error")
+        messageViewHandler.showNoConnectionError()
+    }
+
+    override fun showNoAvailablePlaysError() {
+        messageViewHandler.showNoAvailablePlays()
     }
 }

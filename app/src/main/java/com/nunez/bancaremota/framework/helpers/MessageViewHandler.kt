@@ -29,4 +29,10 @@ class MessageViewHandler(private val container: View) {
         message.text = context.getString(R.string.error_message_no_available_lotteries)
         image.setImageResource(R.drawable.ic_no_lotteries)
     }
+
+    fun showNoAvailablePlays() {
+        container.show()
+        message.text = context.getString(R.string.error_message_no_available_plays)
+        image.setImageResource(R.drawable.ic_no_tickets_found)
+    }
 }

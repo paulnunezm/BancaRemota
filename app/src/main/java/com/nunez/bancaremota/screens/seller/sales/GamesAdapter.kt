@@ -74,7 +74,7 @@ class GamesAdapter(
             lotteryName.text = game.lottery_name
             gameType.text = gameTypeText
             numbers.text = gameNumbers
-            amount.text = itemView.context.getString(R.string.sale_screen_amount, game.amount.toString())
+            amount.text = itemView.context.getString(R.string.format_amount, game.amount.toString())
         }
     }
 }

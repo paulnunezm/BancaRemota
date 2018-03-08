@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingBottom="8dp"
-    android:paddingTop="8dp">
+    tools:parentTag="android.widget.LinearLayout"
+    tools:orientation="horizontal">
 
     <TextView
         style="@style/SalesHeader"
-        android:text="Lotería" />
+        android:text="@string/game_header_lottery" />
 
     <TextView
         style="@style/SalesHeader"
-        android:text="Tipo" />
+        android:text="@string/game_header_type" />
 
     <TextView
         style="@style/SalesHeader"
-        android:text="Valores" />
+        android:text="@string/game_header_plays" />
 
     <TextView
         style="@style/SalesHeader"
-        android:text="Monto" />
-</LinearLayout>
+        android:text="@string/game_header_amount" />
+</merge>
