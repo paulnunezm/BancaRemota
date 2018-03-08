@@ -49,7 +49,7 @@ class LotterySelectorPresenterTest {
         presenter.getAvailableLotteries()
 
         // then
-        verify(view).emmitError(e)
+        verify(view).showUnexpectedError(e)
         verify(view).hide()
     }
 
@@ -64,7 +64,7 @@ class LotterySelectorPresenterTest {
 
         // then
         verify(view).hide()
-        verify(view).emmitNoAvailableLotteriesError()
+        verify(view).showNoAvailableLotteriesError()
     }
 
     @Test

@@ -7,10 +7,10 @@ interface LotterySelectorContract {
 
     interface View {
         fun showLotteries(lotteries: List<Lottery>)
-        fun emmitError(t: Throwable)
+        fun showUnexpectedError(t: Throwable)
         fun emmitSelectedLottery(lottery: Lottery)
-        fun emmitNoAvailableLotteriesError()
-        fun emmitNoConnectionError()
+        fun showNoAvailableLotteriesError()
+        fun showNoConnectionError()
         fun showNoLotterySelectedError()
         fun showLoading()
         fun hideLoading()
