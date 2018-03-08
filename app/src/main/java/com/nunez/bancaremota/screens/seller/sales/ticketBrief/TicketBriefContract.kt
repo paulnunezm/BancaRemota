@@ -9,11 +9,14 @@ interface TicketBriefContract {
     interface View {
         fun showLoading()
         fun hideLoading()
+        fun showTicketNumber(ticketNumber: String)
+        fun showTotalAmount(amout:String)
         fun showAvailablePlays(plays: List<Game>)
         fun showUnavailablePlaysDialog(plays: List<Game>)
         fun showUnexpectedError()
         fun showConnectivityError()
         fun printReceipt(ticketInfo: TicketInfo, availablePlays: ArrayList<Game>)
+        fun showNoAvailablePlaysError()
     }
 
     interface Presenter {

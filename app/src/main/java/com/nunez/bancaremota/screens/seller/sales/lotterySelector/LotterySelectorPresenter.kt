@@ -15,14 +15,14 @@ class LotterySelectorPresenter(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
             if (it.isEmpty()) {
-                view.emmitNoAvailableLotteriesError()
+                view.showNoAvailableLotteriesError()
                 view.hide()
             } else {
                 view.hideLoading()
                 view.showLotteries(it)
             }
         }, {
-            view.emmitError(it)
+            view.showUnexpectedError(it)
             view.hide()
         })
     }

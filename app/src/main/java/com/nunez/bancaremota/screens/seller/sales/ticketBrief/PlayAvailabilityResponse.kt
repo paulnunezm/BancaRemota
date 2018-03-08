@@ -21,5 +21,5 @@ class PlayAvailability(
 
 class TicketInfo(
         val id:String,
-        val number: String,
+        val number: String?,
         @Json(name = "created_at") val createdAt: String)

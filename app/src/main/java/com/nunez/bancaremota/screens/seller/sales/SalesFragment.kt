@@ -1,6 +1,7 @@
 package com.nunez.bancaremota.screens.seller.sales
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
@@ -11,7 +12,9 @@ import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Lottery
 import com.nunez.bancaremota.screens.seller.sales.lotterySelector.LotterySelector
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.TicketBriefFragment
+import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
+import com.nunez.palcine.framework.extensions.showSnackbar
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -43,7 +46,10 @@ class SalesFragment : BaseFragment(), SalesContract.View {
         recycler.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
             setHasFixedSize(true)
+            addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
         }
+
+        (activity as BaseActivity).changeTitle(getString(R.string.action_bar_title_sales))
 
         lotterySelector = LotterySelector()
 
@@ -90,21 +96,26 @@ class SalesFragment : BaseFragment(), SalesContract.View {
     }
 
     override fun showUserBlockedError() {
+        container.showSnackbar(activity.getString(R.string.error_message_blocked_user))
     }
 
     override fun showNoConnectionError() {
+        container.showSnackbar(activity.getString(R.string.error_message_no_connection))
     }
 
     override fun showUnexpectedError() {
+        container.showSnackbar(activity.getString(R.string.error_message_unexpected_error))
     }
 
     override fun showErasedPlayMessage() {
+        container.showSnackbar(activity.getString(R.string.sale_message_erased_play))
     }
 
     override fun showLoading() {
     }
 
     override fun showNoAvailableLotteriesError() {
+        container.showSnackbar(activity.getString(R.string.error_message_no_available_lotteries))
     }
 
     override fun showProcessOrderButton() {
@@ -117,6 +128,7 @@ class SalesFragment : BaseFragment(), SalesContract.View {
 
     private fun refreshData() {
         gamesAdapter = GamesAdapter(gameList)
+        totalAmount.text = getString(R.string.sale_screen_total_amount, gameList.sumByDouble { it.amount.toDouble() }.toString())
         recycler.adapter = gamesAdapter
         gamesAdapter.notifyDataSetChanged()
     }
@@ -125,7 +137,7 @@ class SalesFragment : BaseFragment(), SalesContract.View {
         gamesAdapter.onItemDismissed(position)
     }
 
-    private fun addSwipeListener(){
+    private fun addSwipeListener() {
         itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT, ItemTouchHelper.RIGHT) {
             override fun onMove(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?, target: RecyclerView.ViewHolder?): Boolean {
                 return false
@@ -135,6 +147,7 @@ class SalesFragment : BaseFragment(), SalesContract.View {
                 val position = viewHolder?.adapterPosition
                 position?.let {
                     presenter.onItemSwipe(position)
+                    refreshData()
                 }
             }
         }
