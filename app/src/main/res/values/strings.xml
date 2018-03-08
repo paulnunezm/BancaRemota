@@ -64,11 +64,12 @@
     <string name="ticket_pay_bottom_sheet_to_pay_msg">Total a pagar:</string>
     <string name="ticket_pay_bottom_sheet_error_msg_payment_unsuccessful">No se ha podido realizar el pago!\nPor favor intente más tarde.</string>
 
-    <string name="error_message_unexpected_error">Oh! ha ocurrido un error! \nIntente más tarde</string>
-    <string name="error_message_no_connection">No encontramos conexión a Internet! \nIntente más tarde.</string>
-    <string name="error_message_login">Hubo un error al tratar de iniciar sesión! \nRevise sus datos o intente más tarde.</string>
+    <string name="error_message_unexpected_error">Oh! ha ocurrido un error! \nPor favor intente más tarde</string>
+    <string name="error_message_no_connection">No encontramos conexión a Internet! \nPor favor intente más tarde</string>
+    <string name="error_message_login">Hubo un error al tratar de iniciar sesión! \nRevise sus datos o intente más tarde</string>
     <string name="error_message_blocked_user">Su usario está bloqueado!</string>
-    <string name="error_message_no_available_lotteries">No hay loterías disponibles!</string>
+    <string name="error_message_no_available_lotteries">No hay loterías disponibles!\nPor favor intente más tarte</string>
 
     <string name="action_bar_title_sales">Venta de tickets</string>
+    <string name="error_message_must_select_at_least_one_lottery">¡Debe de seleccionar al menos una lotería!</string>
 </resources>
