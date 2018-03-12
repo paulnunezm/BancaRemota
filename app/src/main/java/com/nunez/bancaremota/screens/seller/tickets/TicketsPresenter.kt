@@ -1,6 +1,5 @@
 package com.nunez.bancaremota.screens.seller.tickets
 
-import android.util.Log
 import com.nunez.bancaremota.framework.respository.data.Ticket
 import com.nunez.palcine.framework.helpers.ConnectivityChecker
 import com.nunez.palcine.framework.respository.BancappService
@@ -17,12 +16,9 @@ class TicketsPresenter(
         private val connectivityChecker: ConnectivityChecker
 ) : TicketsContract.Presenter {
 
-    private lateinit var tickets: List<Ticket>
     private val compositeDisposable = CompositeDisposable()
 
     override fun getAllTickets() {
-        Log.d("TicketsPresenter", "getAllTickets")
-
         ifIsConnected {
             view.hideTickets()
             view.showLoading()
@@ -38,7 +34,6 @@ class TicketsPresenter(
     }
 
     override fun subscribeToSearchQueryChanges(subject: PublishSubject<String>) {
-        Log.d("Presenter", "subscribeToSearch")
         ifIsConnected {
             view.hideTickets()
             view.showLoading()
@@ -74,15 +69,6 @@ class TicketsPresenter(
         }
     }
 
-    private fun isConnected(): Boolean {
-        return if (connectivityChecker.isConected()) {
-            true
-        } else {
-            view.showNoConnectionError()
-            false
-        }
-    }
-
     override fun ticketClicked(ticket: Ticket) {
         view.goToTicketDetails(ticket)
     }
@@ -97,7 +83,6 @@ class TicketsPresenter(
     }
 
     private fun onTicketResponse(response: TicketsResponse) {
-        Log.d("TicketsPresenter", response.toString())
         view.hideLoading()
         if (response.success) {
             if (response.userStatus != "enabled") {
