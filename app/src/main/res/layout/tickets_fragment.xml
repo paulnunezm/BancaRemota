@@ -15,4 +15,10 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         tools:listitem="@layout/item_ticket"/>
+
+    <include layout="@layout/progress"/>
+
+    <include
+        android:id="@+id/messageContainer"
+        layout="@layout/message"/>
 </FrameLayout>

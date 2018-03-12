@@ -24,6 +24,7 @@ class TicketsPresenter(
         Log.d("TicketsPresenter", "getAllTickets")
 
         ifIsConnected {
+            view.hideTickets()
             view.showLoading()
             compositeDisposable.add(service.getTodayTickets()
                     .subscribeOn(Schedulers.io())
@@ -39,6 +40,7 @@ class TicketsPresenter(
     override fun subscribeToSearchQueryChanges(subject: PublishSubject<String>) {
         Log.d("Presenter", "subscribeToSearch")
         ifIsConnected {
+            view.hideTickets()
             view.showLoading()
             compositeDisposable.add(
                     subject
@@ -46,7 +48,6 @@ class TicketsPresenter(
                             .filter { it.isNotEmpty() }
                             .distinctUntilChanged()
                             .switchMap {
-                                Log.d("Presenter", "switchMap")
                                 service.searchTicket(it).toObservable()
                             }
                             .subscribeOn(Schedulers.io())

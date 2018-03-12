@@ -12,6 +12,7 @@ interface TicketsContract {
         fun showUnexpectedError()
         fun showLoading()
         fun hideLoading()
+        fun hideTickets()
     }
 
     interface Presenter {

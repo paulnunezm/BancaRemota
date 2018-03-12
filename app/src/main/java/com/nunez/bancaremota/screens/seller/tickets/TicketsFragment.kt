@@ -4,21 +4,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.helpers.MessageViewHandler
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.respository.data.Ticket
 import com.nunez.bancaremota.screens.seller.tickets.ticketDetails.TicketDetails
 import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
+import com.nunez.palcine.framework.extensions.gone
+import com.nunez.palcine.framework.extensions.hide
+import com.nunez.palcine.framework.extensions.show
 import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
 import com.squareup.moshi.Moshi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.subjects.PublishSubject
+import kotlinx.android.synthetic.main.progress.*
 import kotlinx.android.synthetic.main.tickets_fragment.*
 
 
@@ -28,6 +32,7 @@ class TicketsFragment : BaseFragment(), TicketsContract.View {
 
     private lateinit var searchView: SearchView
     private lateinit var presenter: TicketsContract.Presenter
+    private val messageViewHandler by lazy { MessageViewHandler(messageContainer) }
     private val searchQuerySubject: PublishSubject<String> = PublishSubject.create<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,9 +74,9 @@ class TicketsFragment : BaseFragment(), TicketsContract.View {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                if(newText.isNotEmpty()){
+                if (newText.isNotEmpty()) {
                     searchQuerySubject.onNext(newText)
-                }else{
+                } else {
                     presenter.getAllTickets()
                 }
                 return true
@@ -96,26 +101,35 @@ class TicketsFragment : BaseFragment(), TicketsContract.View {
         startActivity(intent)
     }
 
-    override fun showNoConnectionError() {
-    }
-
-    override fun showUserBlockedError() {
-    }
 
     override fun showTickets(tickets: List<Ticket>) {
         ticketsRecycler.adapter = TicketsAdapter(activity, tickets, {
             presenter.ticketClicked(it)
         })
+        ticketsRecycler.show()
+    }
+
+    override fun showNoConnectionError() {
+        messageViewHandler.showNoConnectionError()
+    }
+
+    override fun showUserBlockedError() {
+        messageViewHandler.showUnexpectedError()
     }
 
     override fun showUnexpectedError() {
+        loadingView.gone()
     }
 
     override fun showLoading() {
-        Log.d("TicketsFragment", "ShowLoading")
+        loadingView.show()
     }
 
     override fun hideLoading() {
-        Log.d("TicketsFragment", "HideLoading")
+        loadingView.hide()
+    }
+
+    override fun hideTickets() {
+        ticketsRecycler.gone()
     }
 }
