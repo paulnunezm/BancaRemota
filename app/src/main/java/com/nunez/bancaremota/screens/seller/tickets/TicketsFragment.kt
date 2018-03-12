@@ -2,7 +2,6 @@ package com.nunez.bancaremota.screens.seller.tickets
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
 import android.util.Log
@@ -14,6 +13,7 @@ import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.respository.data.Ticket
 import com.nunez.bancaremota.screens.seller.tickets.ticketDetails.TicketDetails
+import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
 import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
 import com.squareup.moshi.Moshi
@@ -45,10 +45,11 @@ class TicketsFragment : BaseFragment(), TicketsContract.View {
         super.onViewCreated(view, savedInstanceState)
         presenter.getAllTickets()
 
+        (activity as BaseActivity).changeTitle(activity.getString(R.string.action_bar_title_tickets))
+
         ticketsRecycler.apply {
             layoutManager = LinearLayoutManager(activity)
             setHasFixedSize(true)
-            addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
         }
     }
 
