@@ -43,7 +43,6 @@ class TicketsFragment : BaseFragment(), TicketsContract.View {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter.getAllTickets()
 
         (activity as BaseActivity).changeTitle(activity.getString(R.string.action_bar_title_tickets))
 
@@ -51,6 +50,11 @@ class TicketsFragment : BaseFragment(), TicketsContract.View {
             layoutManager = LinearLayoutManager(activity)
             setHasFixedSize(true)
         }
+    }
+
+    override fun onResume() {
+        presenter.getAllTickets()
+        super.onResume()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
