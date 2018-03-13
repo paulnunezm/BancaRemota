@@ -20,13 +20,12 @@ class TicketsPresenter(
 
     override fun getAllTickets() {
         ifIsConnected {
-            view.hideTickets()
-            view.showLoading()
+            hideEverythingAndShowLoading()
             compositeDisposable.add(service.getTodayTickets()
                     .subscribeOn(Schedulers.io())
                     .observeOn(androidScheduler)
                     .subscribe({
-                       onTicketResponse(it)
+                        onTicketResponse(it)
                     }, {
                         onError(it)
                     }))
@@ -35,8 +34,7 @@ class TicketsPresenter(
 
     override fun subscribeToSearchQueryChanges(subject: PublishSubject<String>) {
         ifIsConnected {
-            view.hideTickets()
-            view.showLoading()
+           hideEverythingAndShowLoading()
             compositeDisposable.add(
                     subject
                             .debounce(300, TimeUnit.MILLISECONDS)
@@ -57,7 +55,7 @@ class TicketsPresenter(
 
     override fun getTicketsWithId(id: String) {
         ifIsConnected {
-            view.showLoading()
+            hideEverythingAndShowLoading()
             compositeDisposable.add(service.searchTicket(id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(androidScheduler)
@@ -88,7 +86,12 @@ class TicketsPresenter(
             if (response.userStatus != "enabled") {
                 view.showUserBlockedError()
             } else {
-                view.showTickets(response.tickets)
+                val tickets = response.tickets
+                if (tickets.isNotEmpty()) {
+                    view.showTickets(response.tickets)
+                } else {
+                    view.showNoTicketsMessage()
+                }
             }
         } else {
             view.showUnexpectedError()
@@ -98,5 +101,11 @@ class TicketsPresenter(
     private fun onError(t: Throwable) {
         view.hideLoading()
         view.showUnexpectedError()
+    }
+
+    private fun hideEverythingAndShowLoading(){
+        view.hideTickets()
+        view.showLoading()
+        view.hideMessage()
     }
 }

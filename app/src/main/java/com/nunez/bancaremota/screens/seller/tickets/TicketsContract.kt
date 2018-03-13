@@ -10,9 +10,11 @@ interface TicketsContract {
         fun showNoConnectionError()
         fun showUserBlockedError()
         fun showUnexpectedError()
+        fun showNoTicketsMessage()
         fun showLoading()
         fun hideLoading()
         fun hideTickets()
+        fun hideMessage()
     }
 
     interface Presenter {

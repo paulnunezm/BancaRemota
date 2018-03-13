@@ -113,6 +113,10 @@ class TicketsFragment : BaseFragment(), TicketsContract.View {
         messageViewHandler.showNoConnectionError()
     }
 
+    override fun showNoTicketsMessage() {
+      messageViewHandler.showNoTicketsAvailable()
+    }
+
     override fun showUserBlockedError() {
         messageViewHandler.showUnexpectedError()
     }
@@ -127,6 +131,10 @@ class TicketsFragment : BaseFragment(), TicketsContract.View {
 
     override fun hideLoading() {
         loadingView.hide()
+    }
+
+    override fun hideMessage() {
+      messageContainer.hide()
     }
 
     override fun hideTickets() {
