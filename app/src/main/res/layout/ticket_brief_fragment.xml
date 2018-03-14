@@ -3,26 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray_extra_light"
+    android:paddingTop="4dp">
+
+
+    <com.vipulasri.ticketview.TicketView
+        android:id="@+id/ticketView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cornerRadius="10dp"
+        app:cornerType="scallop"
+        app:dividerType="dash"
+        app:orientation="horizontal"
+        app:scallopPositionPercent="14"
+        app:scallopRadius="10dp"
+        app:showDivider="true"
+        app:ticketElevation="20dp" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingEnd="16dp"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp">
+        android:paddingBottom="4dp"
+        android:paddingEnd="22dp"
+        android:paddingStart="22dp"
+        android:paddingTop="18dp">
 
         <TextView
-            style="@style/TicketBriefLabel"
             android:id="@+id/ticktNumberLabel"
+            style="@style/TicketBriefLabel"
             android:text="@string/ticket_brief_number"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            style="@style/TicketBriefValue"
             android:id="@+id/ticketNumber"
+            style="@style/TicketBriefValue"
             android:layout_width="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
@@ -35,20 +52,20 @@
             tools:text="abds-woiew-d9s0-dkoas" />
 
         <TextView
-            style="@style/TicketBriefLabel"
             android:id="@+id/totalLabel"
+            style="@style/TicketBriefLabel"
             android:text="@string/ticket_brief_total_amout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            style="@style/TicketBriefValue"
             android:id="@+id/totalAmount"
+            style="@style/TicketBriefValue"
+            android:textColor="@color/green_light"
+            android:textSize="28sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/totalLabel"
             app:layout_constraintTop_toBottomOf="@+id/totalLabel"
-            android:textColor="@color/green_light"
-            android:textStyle="bold"
-            android:textSize="28sp"
             tools:text="$200.0" />
 
 
@@ -56,7 +73,7 @@
             android:id="@+id/salesHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="22dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +98,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:layout_marginEnd="8dp"
             android:src="@drawable/ic_print_24dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"

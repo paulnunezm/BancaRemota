@@ -81,6 +81,7 @@ class TicketBriefFragment : BaseFragment(), TicketBriefContract.View {
 
     override fun showLoading() {
         content.gone()
+        ticketView.gone()
         loadingView.show()
     }
 
@@ -90,6 +91,7 @@ class TicketBriefFragment : BaseFragment(), TicketBriefContract.View {
 
     override fun showAvailablePlays(plays: List<Game>) {
         content.show()
+        ticketView.show()
         printButton.show()
         availablePlaysRecycler.apply {
             adapter = GamesAdapter(plays as ArrayList<Game>)
