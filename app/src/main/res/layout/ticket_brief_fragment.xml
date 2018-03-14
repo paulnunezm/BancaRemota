@@ -43,12 +43,10 @@
             android:layout_width="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
             android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/totalAmount"
             app:layout_constraintEnd_toStartOf="@+id/totalAmount"
             app:layout_constraintStart_toStartOf="@+id/ticktNumberLabel"
-            app:layout_constraintTop_toTopOf="@+id/totalAmount"
+            app:layout_constraintTop_toBottomOf="@+id/ticktNumberLabel"
             tools:text="abds-woiew-d9s0-dkoas" />
 
         <TextView
@@ -61,6 +59,7 @@
         <TextView
             android:id="@+id/totalAmount"
             style="@style/TicketTotalAmount"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="@+id/totalLabel"
             app:layout_constraintTop_toBottomOf="@+id/totalLabel"
             tools:text="$200.0" />
