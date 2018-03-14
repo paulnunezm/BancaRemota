@@ -80,4 +80,10 @@
         <item name="android:textColor">@color/gray_dark</item>
     </style>
 
+    <style name="TicketTotalAmount" parent="TicketBriefValue">
+        <item name="android:textColor">@color/green_light</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
