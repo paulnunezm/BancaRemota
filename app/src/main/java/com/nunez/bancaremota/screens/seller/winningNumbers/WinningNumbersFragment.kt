@@ -6,6 +6,7 @@ import android.view.View
 import com.nunez.bancaremota.R
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
+import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
 import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -24,6 +25,8 @@ class WinningNumbersFragment: BaseFragment(), WinningNumbersContract.View {
         val androidScheduler = AndroidSchedulers.mainThread()
         val presenter = WinningNumbersPresenter(this, connectivityChecker, service, androidScheduler)
         presenter.requestWinningNumbers()
+
+        (activity as BaseActivity).changeTitle(activity.getString(R.string.action_bar_title_winning_numbers))
     }
 
     override fun hideLoading() {
