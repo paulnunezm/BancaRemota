@@ -86,5 +86,6 @@
     <string name="ticket_brief_total_amout">Monto Total:</string>
     <string name="ticket_brief_unavailable_dialog_ok">Entendido</string>
     <string name="error_no_available_tickets">No hay tickets disponbles para mostrar</string>
+    <string name="tickets_label_games">Jugadas:</string>
 
 </resources>

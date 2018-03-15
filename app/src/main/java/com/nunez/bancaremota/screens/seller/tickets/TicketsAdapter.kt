@@ -37,6 +37,7 @@ class TicketsAdapter(
                 itemView.findViewById<TextView>(R.id.number).text = FormatterHelper.getFormattedTicketNumber(number)
                 itemView.findViewById<TextView>(R.id.amount).text = "$currency $amount"
                 itemView.findViewById<TextView>(R.id.status).text = getStatusMessage(this)
+                itemView.findViewById<TextView>(R.id.total_games).text = this.games.size.toString()
             }
 
             itemView.setOnClickListener {
