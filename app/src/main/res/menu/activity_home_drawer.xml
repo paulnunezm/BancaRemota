@@ -6,21 +6,21 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/sale"
-            android:icon="@drawable/ic_ticket_black_24dp"
+            android:icon="@drawable/ic_drawer_sales"
             android:title="@string/seller_screen_drawer_item_sale" />
         <item
             android:id="@+id/tickets"
-            android:icon="@drawable/ic_ticket_black_24dp"
+            android:icon="@drawable/ic_drawer_tickets"
             android:title="@string/seller_screen_drawer_item_tickets" />
 
         <item
             android:id="@+id/winningNumbers"
-            android:icon="@drawable/ic_ticket_black_24dp"
+            android:icon="@drawable/ic_drawer_winning_numbers"
             android:title="@string/seller_screen_drawer_item_winning_numbers" />
 
         <item
             android:id="@+id/prices"
-            android:icon="@drawable/ic_ticket_black_24dp"
+            android:icon="@drawable/ic_drawer_prices"
             android:title="@string/seller_screen_drawer_item_prices" />
 
         <item
@@ -28,12 +28,12 @@
             <menu>
                 <item
                     android:id="@+id/stats"
-                    android:icon="@drawable/ic_ticket_black_24dp"
+                    android:icon="@drawable/ic_drawer_stats"
                     android:title="@string/seller_screen_drawer_item_stats" />
 
                 <item
                     android:id="@+id/logout"
-                    android:icon="@drawable/ic_ticket_black_24dp"
+                    android:icon="@drawable/ic_drawer_logout"
                     android:title="@string/seller_screen_drawer_item_logout" />
             </menu>
         </item>
