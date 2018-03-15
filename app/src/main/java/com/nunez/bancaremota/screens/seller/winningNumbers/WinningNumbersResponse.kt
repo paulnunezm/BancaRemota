@@ -1,8 +1,10 @@
 package com.nunez.bancaremota.screens.seller.winningNumbers
 
+import com.squareup.moshi.Json
+
 data class WinningNumbersResponse(
         val success: Boolean,
-        val numbers: List<WinningNumbers>)
+        @Json(name = "winning_numbers") val numbers: List<WinningNumbers>)
 
 data class WinningNumbers(
         val first: String,
