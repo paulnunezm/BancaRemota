@@ -1,9 +1,11 @@
 package com.nunez.bancaremota.screens.seller.tickets.ticketDetails
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.helpers.FormatterHelper
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Ticket
 import com.nunez.bancaremota.screens.seller.sales.GamesAdapter
@@ -66,12 +68,12 @@ class TicketDetails : BaseActivity(), TicketDetailsContract.View {
             layoutManager = LinearLayoutManager(this@TicketDetails)
             setHasFixedSize(true)
             adapter = GamesAdapter(ArrayList(plays))
-//            addItemDecoration(DividerItemDecoration(this@TicketDetails, DividerItemDecoration.HORIZONTAL))
+            addItemDecoration(DividerItemDecoration(this@TicketDetails, DividerItemDecoration.HORIZONTAL))
         }
     }
 
     override fun showNumberAndAmount(number: String, amount: String) {
-        ticket_number.text = number
+        ticket_number.text = FormatterHelper.getFormattedTicketNumber(number)
         ticket_amount.text = amount
     }
 

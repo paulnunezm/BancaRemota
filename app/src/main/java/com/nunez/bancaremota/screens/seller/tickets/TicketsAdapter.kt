@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.helpers.FormatterHelper
 import com.nunez.bancaremota.framework.respository.data.Ticket
 
 
@@ -33,9 +34,10 @@ class TicketsAdapter(
 
         fun bind(ticket: Ticket, clickListener: (Ticket) -> Unit) {
             with(ticket) {
-                itemView.findViewById<TextView>(R.id.number).text = number
+                itemView.findViewById<TextView>(R.id.number).text = FormatterHelper.getFormattedTicketNumber(number)
                 itemView.findViewById<TextView>(R.id.amount).text = "$currency $amount"
                 itemView.findViewById<TextView>(R.id.status).text = getStatusMessage(this)
+                itemView.findViewById<TextView>(R.id.total_games).text = this.games.size.toString()
             }
 
             itemView.setOnClickListener {

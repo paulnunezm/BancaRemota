@@ -73,6 +73,7 @@
 
     <string name="action_bar_title_sales">Venta de tickets</string>
     <string name="action_bar_title_ticket_brief">Comprobante</string>
+    <string name="action_bar_title_tickets">Tickets</string>
 
     <string name="format_amount">$%s</string>
 
@@ -84,5 +85,7 @@
     <string name="ticket_brief_number">Número de ticket:</string>
     <string name="ticket_brief_total_amout">Monto Total:</string>
     <string name="ticket_brief_unavailable_dialog_ok">Entendido</string>
+    <string name="error_no_available_tickets">No hay tickets disponbles para mostrar</string>
+    <string name="tickets_label_games">Jugadas:</string>
 
 </resources>

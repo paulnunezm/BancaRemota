@@ -23,61 +23,89 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/gray_extra_light"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.vipulasri.ticketview.TicketView
+            android:id="@+id/ticketView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cornerRadius="10dp"
+            app:cornerType="scallop"
+            app:dividerType="dash"
+            app:orientation="horizontal"
+            app:scallopRadius="10dp"
+            app:showDivider="false"
+            app:ticketElevation="20dp" />
 
         <TextView
             android:id="@+id/ticket_number_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            style="@style/TicketBriefLabel"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
             android:text="@string/tickets_label_number"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/ticket_number"
+            style="@style/TicketBriefValue"
             android:layout_width="wrap_content"
-            android:layout_height="16dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/ticket_number_label"
             app:layout_constraintTop_toBottomOf="@+id/ticket_number_label"
             tools:text="23n92sdf390" />
 
         <TextView
             android:id="@+id/ticket_status_label"
+            style="@style/TicketBriefLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/tickets_label_status"
-            app:layout_constraintEnd_toStartOf="@+id/amount"
-            app:layout_constraintStart_toEndOf="@+id/ticket_number_label"
+            app:layout_constraintStart_toStartOf="@id/ticket_number"
+            app:layout_constraintTop_toBottomOf="@id/ticket_number" />
+
+        <TextView
+            android:id="@+id/ticket_amount_label"
+            style="@style/TicketBriefLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="@string/ticket_brief_total_amout"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ticket_number_label" />
 
         <TextView
             android:id="@+id/ticket_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ticket_status"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ticket_status_label"
+            style="@style/TicketTotalAmount"
+            app:layout_constraintEnd_toEndOf="@+id/ticket_amount_label"
+            app:layout_constraintTop_toBottomOf="@+id/ticket_amount_label"
             tools:text="RD$1,2340" />
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/ticket_status">
+
+            <include layout="@layout/sales_header" />
+        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/gamesRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
             android:scrollbars="vertical"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ticket_status"
+            app:layout_constraintTop_toBottomOf="@+id/header"
             tools:listitem="@layout/item_sales_game" />
 
         <LinearLayout
@@ -96,21 +124,26 @@
                 android:id="@+id/payButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ticket_btn_pay" />
+                android:text="@string/ticket_btn_pay"
+                android:theme="@style/ButtonColored" />
 
             <Button
                 android:id="@+id/printButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ticket_btn_print" />
+                android:text="@string/ticket_btn_print"
+                android:theme="@style/ButtonColored" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/ticket_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/ticket_status_label"
-            app:layout_constraintTop_toBottomOf="@+id/ticket_status_label"
+            style="@style/TicketBriefValue"
+            android:layout_marginStart="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/ticket_status_label"
+            app:layout_constraintStart_toEndOf="@+id/ticket_status_label"
+            app:layout_constraintTop_toTopOf="@+id/ticket_status_label"
             tools:text="Premiado" />
 
     </android.support.constraint.ConstraintLayout>
