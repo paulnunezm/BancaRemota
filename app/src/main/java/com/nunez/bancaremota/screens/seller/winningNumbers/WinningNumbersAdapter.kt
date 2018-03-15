@@ -32,7 +32,7 @@ class WinningNumbersAdapter(
            itemView.findViewById<TextView>(R.id.lotteryName).text = item.lottery.name
            itemView.findViewById<TextView>(R.id.first).text = item.first
            itemView.findViewById<TextView>(R.id.second).text = item.second
-           itemView.findViewById<TextView>(R.id.third).text = item.second
+           itemView.findViewById<TextView>(R.id.third).text = item.third
         }
     }
 }
