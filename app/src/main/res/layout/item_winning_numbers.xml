@@ -40,7 +40,6 @@
     <TextView
         android:id="@+id/first"
         style="@style/WinningNumber"
-        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/second"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
