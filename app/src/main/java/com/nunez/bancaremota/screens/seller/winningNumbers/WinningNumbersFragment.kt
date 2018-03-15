@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.helpers.MessageViewHandler
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.palcine.BaseActivity
@@ -18,6 +19,8 @@ import kotlinx.android.synthetic.main.winning_numbers.*
 class WinningNumbersFragment: BaseFragment(), WinningNumbersContract.View {
 
     override var layoutId: Int = R.layout.winning_numbers
+
+    private val messageHandler by lazy { MessageViewHandler(messageContainer) }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,6 +44,7 @@ class WinningNumbersFragment: BaseFragment(), WinningNumbersContract.View {
     }
 
     override fun showNoConnectionError() {
+        messageHandler.showNoConnectionError()
     }
 
     override fun showNumbers(numbers: List<WinningNumbers>) {
@@ -51,5 +55,6 @@ class WinningNumbersFragment: BaseFragment(), WinningNumbersContract.View {
     }
 
     override fun showUnexpectedError() {
+        messageHandler.showUnexpectedError()
     }
 }
