@@ -11,7 +11,7 @@ import com.nunez.bancaremota.framework.respository.data.Ticket
 import com.nunez.bancaremota.screens.seller.sales.GamesAdapter
 import com.nunez.bancaremota.screens.seller.tickets.payTicketBottomSheet.PayTicketBottomSheet
 import com.nunez.palcine.BaseActivity
-import com.nunez.palcine.framework.extensions.hide
+import com.nunez.bancaremota.framework.extensions.hide
 import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.ticket_details.*
 

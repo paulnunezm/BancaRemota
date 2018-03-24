@@ -3,13 +3,13 @@ package com.nunez.bancaremota.screens.login
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
+import com.nunez.bancaremota.framework.exceptions.NoConnectionException
+import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
 import com.nunez.bancaremota.framework.helpers.PreferencesManager
+import com.nunez.bancaremota.framework.respository.BancappService
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.respository.data.AccessTokenRequest
 import com.nunez.bancaremota.framework.respository.data.AccessTokenResponse
-import com.nunez.palcine.framework.exceptions.NoConnectionException
-import com.nunez.palcine.framework.helpers.ConnectivityChecker
-import com.nunez.palcine.framework.respository.BancappService
 import io.reactivex.Single
 import io.reactivex.schedulers.TestScheduler
 import org.junit.Test

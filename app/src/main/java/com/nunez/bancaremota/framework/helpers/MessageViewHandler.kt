@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.nunez.bancaremota.R
-import com.nunez.palcine.framework.extensions.show
+import com.nunez.bancaremota.framework.extensions.show
 
 class MessageViewHandler(private val container: View) {
 

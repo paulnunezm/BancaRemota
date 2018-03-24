@@ -1,7 +1,7 @@
 package com.nunez.bancaremota.screens.seller.winningNumbers
 
-import com.nunez.palcine.framework.helpers.ConnectivityChecker
-import com.nunez.palcine.framework.respository.BancappService
+import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
+import com.nunez.bancaremota.framework.respository.BancappService
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 

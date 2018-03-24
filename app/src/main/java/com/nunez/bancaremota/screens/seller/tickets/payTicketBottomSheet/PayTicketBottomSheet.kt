@@ -10,10 +10,10 @@ import com.nunez.bancaremota.framework.helpers.PreferencesManager
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.views.MessageHandler
-import com.nunez.palcine.framework.extensions.gone
-import com.nunez.palcine.framework.extensions.show
-import com.nunez.palcine.framework.helpers.ConnectivityChecker
-import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
+import com.nunez.bancaremota.framework.extensions.gone
+import com.nunez.bancaremota.framework.extensions.show
+import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
+import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.message.*
 import kotlinx.android.synthetic.main.progress.*

@@ -15,10 +15,10 @@ import com.nunez.bancaremota.framework.respository.data.Ticket
 import com.nunez.bancaremota.screens.seller.tickets.ticketDetails.TicketDetails
 import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
-import com.nunez.palcine.framework.extensions.gone
-import com.nunez.palcine.framework.extensions.hide
-import com.nunez.palcine.framework.extensions.show
-import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
+import com.nunez.bancaremota.framework.extensions.gone
+import com.nunez.bancaremota.framework.extensions.hide
+import com.nunez.bancaremota.framework.extensions.show
+import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
 import com.squareup.moshi.Moshi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.subjects.PublishSubject

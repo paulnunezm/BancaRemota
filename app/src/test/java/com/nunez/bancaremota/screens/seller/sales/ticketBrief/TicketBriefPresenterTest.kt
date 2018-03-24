@@ -4,7 +4,7 @@ import com.nhaarman.mockito_kotlin.*
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Pale
 import com.nunez.bancaremota.framework.respository.data.Quiniela
-import com.nunez.palcine.framework.exceptions.NoConnectionException
+import com.nunez.bancaremota.framework.exceptions.NoConnectionException
 import io.reactivex.Single
 import junit.framework.Assert.assertEquals
 import org.junit.Test
@@ -15,12 +15,12 @@ class TicketBriefPresenterTest {
     val presenter = TicketBriefPresenter(view, interactor)
 
     val plays = arrayListOf(
-            Quiniela(1, 20),
-            Pale(1, 14, 20),
-            Quiniela(1, 20),
-            Pale(1, 14, 20),
-            Quiniela(1, 20),
-            Pale(1, 14, 20)
+            Quiniela(1, 20f),
+            Pale(1, 14, 20f),
+            Quiniela(1, 20f),
+            Pale(1, 14, 20f),
+            Quiniela(1, 20f),
+            Pale(1, 14, 20f)
     )
 
     val playAvailabilityResponse = PlayAvailabilityResponses()

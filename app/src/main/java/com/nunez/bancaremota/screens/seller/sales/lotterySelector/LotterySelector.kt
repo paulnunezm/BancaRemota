@@ -13,11 +13,11 @@ import com.nunez.bancaremota.framework.helpers.PreferencesManager
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.respository.data.Lottery
-import com.nunez.palcine.framework.extensions.gone
-import com.nunez.palcine.framework.extensions.hide
-import com.nunez.palcine.framework.extensions.show
-import com.nunez.palcine.framework.helpers.ConnectivityChecker
-import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
+import com.nunez.bancaremota.framework.extensions.gone
+import com.nunez.bancaremota.framework.extensions.hide
+import com.nunez.bancaremota.framework.extensions.show
+import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
+import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.lottery_selector_bottom_sheet.*

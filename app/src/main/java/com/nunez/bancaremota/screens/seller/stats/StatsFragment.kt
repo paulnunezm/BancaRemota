@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.View
 import com.nunez.bancaremota.R
 import com.nunez.palcine.BaseFragment
-import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
+import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
 import kotlinx.android.synthetic.main.stats_fragment.*
 
 class StatsFragment : BaseFragment(), StatsContract.View{

@@ -1,7 +1,6 @@
-package com.nunez.palcine.framework.respository
+package com.nunez.bancaremota.framework.respository
 
 import com.nunez.bancaremota.BancaRemotaAplication
-import com.nunez.bancaremota.framework.respository.AuthenticationInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

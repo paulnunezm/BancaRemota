@@ -1,8 +1,6 @@
 package com.nunez.bancaremota.framework.respository
 
 import com.nunez.bancaremota.framework.helpers.PreferencesManager
-import com.nunez.palcine.framework.respository.BancappService
-import com.nunez.palcine.framework.respository.Endpoints
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

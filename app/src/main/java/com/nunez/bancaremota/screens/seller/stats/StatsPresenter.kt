@@ -1,6 +1,6 @@
 package com.nunez.bancaremota.screens.seller.stats
 
-import com.nunez.palcine.framework.helpers.ConnectivityChecker
+import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
 
 class StatsPresenter(
         private val view: StatsContract.View,

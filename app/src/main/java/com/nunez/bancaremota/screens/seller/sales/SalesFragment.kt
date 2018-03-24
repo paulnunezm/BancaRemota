@@ -14,7 +14,7 @@ import com.nunez.bancaremota.screens.seller.sales.lotterySelector.LotterySelecto
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.TicketBriefFragment
 import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
-import com.nunez.palcine.framework.extensions.showSnackbar
+import com.nunez.bancaremota.framework.extensions.showSnackbar
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

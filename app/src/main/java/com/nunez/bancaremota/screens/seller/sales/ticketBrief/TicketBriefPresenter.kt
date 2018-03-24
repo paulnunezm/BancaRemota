@@ -2,7 +2,7 @@ package com.nunez.bancaremota.screens.seller.sales.ticketBrief
 
 import com.nunez.bancaremota.framework.helpers.FormatterHelper
 import com.nunez.bancaremota.framework.respository.data.Game
-import com.nunez.palcine.framework.exceptions.NoConnectionException
+import com.nunez.bancaremota.framework.exceptions.NoConnectionException
 
 class TicketBriefPresenter(
         val view: TicketBriefContract.View,

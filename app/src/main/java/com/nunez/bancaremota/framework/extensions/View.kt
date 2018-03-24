@@ -1,4 +1,4 @@
-package com.nunez.palcine.framework.extensions
+package com.nunez.bancaremota.framework.extensions
 
 import android.support.design.widget.Snackbar
 import android.view.View

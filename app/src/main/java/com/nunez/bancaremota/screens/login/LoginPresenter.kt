@@ -2,7 +2,7 @@ package com.nunez.bancaremota.screens.login
 
 import com.nunez.bancaremota.framework.respository.data.AccessTokenResponse
 import com.nunez.bancaremota.framework.respository.data.User
-import com.nunez.palcine.framework.exceptions.NoConnectionException
+import com.nunez.bancaremota.framework.exceptions.NoConnectionException
 import io.reactivex.disposables.CompositeDisposable
 
 class LoginPresenter(

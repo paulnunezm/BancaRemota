@@ -1,5 +1,6 @@
-package com.nunez.palcine.framework.respository
+package com.nunez.bancaremota.framework.respository
 
+import com.nunez.bancaremota.framework.respository.Endpoints
 import com.nunez.bancaremota.framework.respository.data.AccessTokenRequest
 import com.nunez.bancaremota.framework.respository.data.AccessTokenResponse
 import com.nunez.bancaremota.framework.respository.data.LotteryResponse
