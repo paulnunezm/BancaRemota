@@ -1,8 +1,8 @@
 package com.nunez.bancaremota.screens.seller.tickets
 
+import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
+import com.nunez.bancaremota.framework.respository.BancappService
 import com.nunez.bancaremota.framework.respository.data.Ticket
-import com.nunez.palcine.framework.helpers.ConnectivityChecker
-import com.nunez.palcine.framework.respository.BancappService
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

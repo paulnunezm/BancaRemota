@@ -5,8 +5,8 @@ import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.framework.respository.data.AccessTokenRequest
 import com.nunez.bancaremota.framework.respository.data.AccessTokenResponse
 import com.nunez.bancaremota.framework.respository.data.User
-import com.nunez.palcine.framework.exceptions.NoConnectionException
-import com.nunez.palcine.framework.helpers.ConnectivityChecker
+import com.nunez.bancaremota.framework.exceptions.NoConnectionException
+import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
 import io.reactivex.Completable
 import io.reactivex.Scheduler
 import io.reactivex.Single

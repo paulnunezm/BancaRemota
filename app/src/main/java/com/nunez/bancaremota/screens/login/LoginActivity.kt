@@ -8,10 +8,10 @@ import com.nunez.bancaremota.R
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.bancaremota.screens.seller.SellerActivity
-import com.nunez.palcine.framework.extensions.gone
-import com.nunez.palcine.framework.extensions.show
-import com.nunez.palcine.framework.extensions.showSnackbar
-import com.nunez.palcine.framework.helpers.ConnectivityCheckerImpl
+import com.nunez.bancaremota.framework.extensions.gone
+import com.nunez.bancaremota.framework.extensions.show
+import com.nunez.bancaremota.framework.extensions.showSnackbar
+import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.login_activity.*
 import kotlinx.android.synthetic.main.progress.*

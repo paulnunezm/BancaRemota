@@ -1,10 +1,10 @@
 package com.nunez.bancaremota.screens.seller.sales.ticketBrief
 
 import android.util.Log
+import com.nunez.bancaremota.framework.exceptions.NoConnectionException
+import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
+import com.nunez.bancaremota.framework.respository.BancappService
 import com.nunez.bancaremota.framework.respository.data.Game
-import com.nunez.palcine.framework.exceptions.NoConnectionException
-import com.nunez.palcine.framework.helpers.ConnectivityChecker
-import com.nunez.palcine.framework.respository.BancappService
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers

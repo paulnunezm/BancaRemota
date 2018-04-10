@@ -1,4 +1,4 @@
-package com.nunez.palcine.framework.respository
+package com.nunez.bancaremota.framework.respository
 
 class Endpoints {
     companion object {

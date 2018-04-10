@@ -3,7 +3,7 @@ package com.nunez.bancaremota.screens.seller.sales
 import com.nunez.bancaremota.framework.exceptions.NotAvailableLotteriesException
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Lottery
-import com.nunez.palcine.framework.exceptions.NoConnectionException
+import com.nunez.bancaremota.framework.exceptions.NoConnectionException
 
 class SalesPresenter(
         private val view: SalesContract.View

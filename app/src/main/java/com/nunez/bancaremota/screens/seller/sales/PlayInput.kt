@@ -12,8 +12,8 @@ import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Pale
 import com.nunez.bancaremota.framework.respository.data.Quiniela
 import com.nunez.bancaremota.framework.respository.data.Tripleta
-import com.nunez.palcine.framework.extensions.gone
-import com.nunez.palcine.framework.extensions.show
+import com.nunez.bancaremota.framework.extensions.gone
+import com.nunez.bancaremota.framework.extensions.show
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.input_play.view.*
 
