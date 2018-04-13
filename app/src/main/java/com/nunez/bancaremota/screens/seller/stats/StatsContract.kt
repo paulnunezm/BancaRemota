@@ -1,5 +1,7 @@
 package com.nunez.bancaremota.screens.seller.stats
 
+import io.reactivex.Single
+
 interface StatsContract {
 
     interface View{
@@ -12,5 +14,9 @@ interface StatsContract {
 
     interface Presenter{
         fun requestStats()
+    }
+
+    interface Interactor{
+        fun requestStats(): Single<Stats>
     }
 }

@@ -1,21 +1,37 @@
 package com.nunez.bancaremota.screens.seller.stats
 
-import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
+import android.util.Log
+import com.nunez.bancaremota.framework.exceptions.NoConnectionException
+import io.reactivex.disposables.CompositeDisposable
 
 class StatsPresenter(
         private val view: StatsContract.View,
-        private val connectivityChecker: ConnectivityChecker
+        private val interactor: StatsContract.Interactor
 ) : StatsContract.Presenter {
 
-    var first = false
+    private val disposable = CompositeDisposable()
 
     override fun requestStats() {
-        val stats = if (first) {
-            Stats("1,000","500","100", "300")
-        } else {
-            first = true
-            Stats("2,000","500","100", "300")
+        view.showLoading()
+        disposable.add(interactor.requestStats()
+                .subscribe(
+                        {
+                            view.hideLoading()
+                            view.showStats(it)
+                        },
+                        this::onError)
+        )
+    }
+
+    private fun onError(t: Throwable) {
+        view.hideLoading()
+
+        when (t) {
+            is NoConnectionException -> view.showNoConnectionError()
+            else -> {
+                Log.d("presenter", "illegal state ")
+                view.showUnexpectedError()
+            }
         }
-        view.showStats(stats)
     }
 }

@@ -12,5 +12,6 @@ class Endpoints {
         const val SEARCH_TICKET = "api/tickets"
         const val PAY = "api/pay"
         const val PRINT = "api/print"
+        const val STATS = "api/totals"
     }
 }

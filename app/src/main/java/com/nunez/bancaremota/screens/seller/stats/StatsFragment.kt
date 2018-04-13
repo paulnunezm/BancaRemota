@@ -1,16 +1,24 @@
 package com.nunez.bancaremota.screens.seller.stats
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.nunez.bancaremota.R
-import com.nunez.palcine.BaseFragment
+import com.nunez.bancaremota.framework.extensions.gone
+import com.nunez.bancaremota.framework.extensions.show
 import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
+import com.nunez.bancaremota.framework.helpers.MessageViewHandler
+import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
+import com.nunez.bancaremota.framework.respository.ServiceProvider
+import com.nunez.palcine.BaseFragment
+import io.reactivex.android.schedulers.AndroidSchedulers
+import kotlinx.android.synthetic.main.progress.*
 import kotlinx.android.synthetic.main.stats_fragment.*
 
 class StatsFragment : BaseFragment(), StatsContract.View{
     override var layoutId: Int = R.layout.stats_fragment
     lateinit var presenter: StatsContract.Presenter
+
+    lateinit var messageViewHandler : MessageViewHandler
 
     companion object {
         private const val TAG = "StatsFragment"
@@ -23,7 +31,14 @@ class StatsFragment : BaseFragment(), StatsContract.View{
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter = StatsPresenter(this, ConnectivityCheckerImpl(activity))
+        val preferencesManager = PreferencesManagerImpl(this.activity)
+        val serviceProvider = ServiceProvider(preferencesManager)
+        val authService  = serviceProvider.getAuthorizedService()
+        val connectivyChecker = ConnectivityCheckerImpl(this.activity)
+        val interactor = StatsInteractor(connectivyChecker, authService, AndroidSchedulers.mainThread())
+        presenter = StatsPresenter(this, interactor)
+
+        messageViewHandler = MessageViewHandler(messageContainer)
 
         refreshContainer.setOnRefreshListener { presenter.requestStats()}
         presenter.requestStats()
@@ -34,25 +49,29 @@ class StatsFragment : BaseFragment(), StatsContract.View{
         with(stats){
             salesValue.text = sales
             commissionValue.text = commission
-            pricesValue.text = prices
+            pricesValue.text = won
             totalValue.text = total
         }
+        content.show()
     }
 
     override fun showLoading() {
-        Log.d(TAG, "ShowLoading")
+        loadingView.show()
+        content.gone()
     }
 
     override fun hideLoading() {
-        Log.d(TAG, "hideLoading")
+        loadingView.gone()
     }
 
     override fun showNoConnectionError() {
-        Log.d(TAG, "setNoConnectionError")
+        refreshContainer.isRefreshing = false
+        loadingView.gone()
+        messageViewHandler.showNoConnectionError()
     }
 
     override fun showUnexpectedError() {
-        Log.d(TAG, "setUnexpectedErrorMessage")
+        refreshContainer.isRefreshing = false
+        messageViewHandler.showUnexpectedError()
     }
-
 }

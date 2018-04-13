@@ -1,6 +1,5 @@
 package com.nunez.bancaremota.framework.respository
 
-import com.nunez.bancaremota.framework.respository.Endpoints
 import com.nunez.bancaremota.framework.respository.data.AccessTokenRequest
 import com.nunez.bancaremota.framework.respository.data.AccessTokenResponse
 import com.nunez.bancaremota.framework.respository.data.LotteryResponse
@@ -8,6 +7,7 @@ import com.nunez.bancaremota.framework.respository.data.User
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.PlayAvailabilityResponse
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.PrintResponse
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.TicketBriefInteractor
+import com.nunez.bancaremota.screens.seller.stats.StatsResponse
 import com.nunez.bancaremota.screens.seller.tickets.TicketsResponse
 import com.nunez.bancaremota.screens.seller.tickets.payTicketBottomSheet.PayResponse
 import com.nunez.bancaremota.screens.seller.winningNumbers.WinningNumbersResponse
@@ -44,4 +44,7 @@ interface BancappService {
     @POST(Endpoints.PRINT)
     @FormUrlEncoded
     fun printTicket(@Field("ticket_id") id: String): Single<PrintResponse>
+
+    @GET(Endpoints.STATS)
+    fun getStats(): Single<StatsResponse>
 }
