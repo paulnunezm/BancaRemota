@@ -11,9 +11,10 @@
         android:layout_height="match_parent">
 
         <include layout="@layout/progress" />
+
         <include
             android:id="@+id/messageContainer"
-            layout="@layout/message"/>
+            layout="@layout/message" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/content"
@@ -21,92 +22,71 @@
             android:layout_height="match_parent">
 
             <TextView
+                style="@style/StatsTitle"
                 android:id="@+id/statsTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/stats_txt_stats"
-                android:textSize="22sp" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/salesLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                style="@style/StatsLabel"
                 android:text="@string/stats_label_sales"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/statsTxt" />
 
             <TextView
                 android:id="@+id/salesValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="8dp"
-                android:textSize="26sp"
+                style="@style/StatsAmount"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/salesLabel"
                 tools:text="2,000.00" />
 
             <TextView
                 android:id="@+id/commissionLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                style="@style/StatsLabel"
                 android:text="@string/stats_commission"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/salesValue" />
 
             <TextView
                 android:id="@+id/commissionValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="8dp"
-                android:textSize="26sp"
+                style="@style/StatsAmount"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/commissionLabel"
                 tools:text="500.00" />
 
             <TextView
                 android:id="@+id/pricesLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                style="@style/StatsLabel"
                 android:text="@string/stats_label_prices"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/commissionValue" />
 
             <TextView
                 android:id="@+id/pricesValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="8dp"
-                android:textSize="26sp"
+                style="@style/StatsAmount"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pricesLabel"
                 tools:text="300.00" />
 
             <TextView
                 android:id="@+id/totalLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                style="@style/StatsLabel"
                 android:text="@string/stats_label_total"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pricesValue" />
 
             <TextView
                 android:id="@+id/totalValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="8dp"
-                android:textSize="26sp"
+                style="@style/StatsAmount"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/totalLabel"
                 tools:text="200.00" />
