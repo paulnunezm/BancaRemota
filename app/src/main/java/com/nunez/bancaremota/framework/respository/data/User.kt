@@ -15,12 +15,12 @@ data class User(
 }
 
 data class UserSettings(
-        @Json(name = "q_first") val quinielaFirst: String,
-        @Json(name = "q_second") val quinieelaSecond: String,
-        @Json(name = "q_third") val quinielaThird: String,
-        @Json(name = "p_first") val paleFirst: String,
-        @Json(name = "p_second") val paleSecond: String,
-        @Json(name = "super_p") val superPale: String,
-        @Json(name = "t_first") val tripletaFirst: String,
-        @Json(name = "t_second") val tripletaSecond: String
+        @Json(name = "q_first") val quinielaFirst: String? = "",
+        @Json(name = "q_second") val quinielaSecond: String? = "",
+        @Json(name = "q_third") val quinielaThird: String? = "",
+        @Json(name = "p_first") val paleFirst: String? = "",
+        @Json(name = "p_second") val paleSecond: String? = "",
+        @Json(name = "super_p") val superPale: String? = "",
+        @Json(name = "t_first") val tripletaFirst: String? = "",
+        @Json(name = "t_second") val tripletaSecond: String? = ""
 )
