@@ -1,20 +1,22 @@
 package com.nunez.bancaremota.screens.seller.prices
 
 import com.nunez.bancaremota.framework.respository.data.User
+import com.nunez.bancaremota.framework.respository.data.UserSettings
 import io.reactivex.Single
 
 interface PricesContract {
 
     interface View {
-        fun showUserBlockedError()
+        fun goToLoginActivity()
+        fun hideLoading()
         fun showNoConnectionError()
         fun showUnexpectedError()
         fun showLoading()
-        fun hideLoading()
+        fun showPrices(userSettings: UserSettings)
     }
 
     interface Presenter {
-        fun getPrices()
+        fun getPrices(prices: UserSettings)
     }
 
     interface Interactor {
