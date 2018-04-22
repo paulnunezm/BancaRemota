@@ -3,6 +3,7 @@ package com.nunez.bancaremota.screens.seller.tickets
 import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
 import com.nunez.bancaremota.framework.respository.BancappService
 import com.nunez.bancaremota.framework.respository.data.Ticket
+import com.nunez.bancaremota.framework.respository.data.User
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -83,7 +84,7 @@ class TicketsPresenter(
     private fun onTicketResponse(response: TicketsResponse) {
         view.hideLoading()
         if (response.success) {
-            if (response.userStatus != "enabled") {
+            if (response.userStatus != User.ENABLED) {
                 view.showUserBlockedError()
             } else {
                 val tickets = response.tickets
