@@ -14,51 +14,53 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/quinielaLabel"
+                android:id="@+id/tripletaLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tripleta" />
 
             <LinearLayout
-                android:id="@+id/quinielaFirstContainer"
+                android:id="@+id/tripletaFirstContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@+id/quinielaSecondContainer"
+                app:layout_constraintEnd_toStartOf="@+id/tripletaSecondContainer"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/quinielaLabel">
+                app:layout_constraintTop_toBottomOf="@id/tripletaLabel">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Primera"
-                    app:layout_constraintTop_toBottomOf="@id/quinielaLabel" />
+                    app:layout_constraintTop_toBottomOf="@id/tripletaLabel" />
 
                 <TextView
+                    android:id="@+id/tripletaFirstValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="10.00" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/quinielaSecondContainer"
+                android:id="@+id/tripletaSecondContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/quinielaFirstContainer"
-                app:layout_constraintTop_toTopOf="@id/quinielaFirstContainer">
+                app:layout_constraintStart_toEndOf="@+id/tripletaFirstContainer"
+                app:layout_constraintTop_toTopOf="@id/tripletaFirstContainer">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Segunda"
-                    app:layout_constraintTop_toBottomOf="@id/quinielaLabel" />
+                    app:layout_constraintTop_toBottomOf="@id/tripletaLabel" />
 
                 <TextView
+                    android:id="@+id/tripletaSecondValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="10.00" />
