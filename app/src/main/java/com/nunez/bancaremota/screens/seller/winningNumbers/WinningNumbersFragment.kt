@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.extensions.gone
+import com.nunez.bancaremota.framework.extensions.show
+import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
 import com.nunez.bancaremota.framework.helpers.MessageViewHandler
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
 import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
-import com.nunez.bancaremota.framework.extensions.gone
-import com.nunez.bancaremota.framework.extensions.show
-import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.progress.*
 import kotlinx.android.synthetic.main.winning_numbers.*
@@ -45,6 +45,10 @@ class WinningNumbersFragment: BaseFragment(), WinningNumbersContract.View {
 
     override fun showNoConnectionError() {
         messageHandler.showNoConnectionError()
+    }
+
+    override fun showNoWinningNumbers() {
+        messageHandler.showNoWinningNumbers()
     }
 
     override fun showNumbers(numbers: List<WinningNumbers>) {

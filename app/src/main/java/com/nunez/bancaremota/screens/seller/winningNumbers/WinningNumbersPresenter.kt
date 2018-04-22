@@ -14,22 +14,26 @@ class WinningNumbersPresenter(
 
     override fun requestWinningNumbers() {
         view.showLoading()
-        if(connectivityChecker.isConected()){
+        if (connectivityChecker.isConected()) {
             service.getWinningNumbers()
                     .subscribeOn(Schedulers.io())
                     .observeOn(androidScheduler)
                     .subscribe({
                         view.hideLoading()
-                        if(it.success){
-                            view.showNumbers(it.numbers)
-                        }else{
+                        if (it.success) {
+                            if (it.numbers.isEmpty()) {
+                                view.showNoWinningNumbers()
+                            } else {
+                                view.showNumbers(it.numbers)
+                            }
+                        } else {
                             view.showUnexpectedError()
                         }
-                    },{
+                    }, {
                         view.hideLoading()
                         view.showUnexpectedError()
                     })
-        }else{
+        } else {
             view.hideLoading()
             view.showNoConnectionError()
         }

@@ -6,6 +6,7 @@ interface WinningNumbersContract {
         fun hideLoading()
         fun showLoading()
         fun showNoConnectionError()
+        fun showNoWinningNumbers()
         fun showNumbers(numbers: List<WinningNumbers>)
         fun showUnexpectedError()
     }

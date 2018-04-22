@@ -70,6 +70,7 @@
     <string name="error_message_no_available_lotteries">No hay loterías disponibles!\nPor favor intente más tarte</string>
     <string name="error_message_must_select_at_least_one_lottery">¡Debe de seleccionar al menos una lotería!</string>
     <string name="error_message_no_available_plays">No hay jugadas válidas disponibles para jugar</string>
+    <string name="error_no_available_winning_numbers">Aún hay números ganadores para el día de hoy</string>
 
     <string name="action_bar_title_sales">Venta de tickets</string>
     <string name="action_bar_title_ticket_brief">Comprobante</string>

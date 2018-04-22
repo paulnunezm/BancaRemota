@@ -41,4 +41,10 @@ class MessageViewHandler(private val container: View) {
         message.text = context.getString(R.string.error_no_available_tickets)
         image.setImageResource(R.drawable.ic_no_tickets_found)
     }
+
+    fun showNoWinningNumbers() {
+        container.show()
+        message.text = context.getString(R.string.error_no_available_winning_numbers)
+        image.setImageResource(R.drawable.ic_no_tickets_found)
+    }
 }
