@@ -47,7 +47,7 @@ data class Tripleta(
 data class Ticket(
         @Json(name = "ticket_id") val id: String,
         @Json(name = "ticket_number") val number: String,
-        @Json(name = "ticket_amount") val amount: Float,
+        @Json(name = "ticket_amount") val amount: String,
         @Json(name = "ticket_currency") val currency: String,
         @Json(name = "ticket_blocked") val blocked: Boolean,
         @Json(name = "ticket_paid") val paid: Boolean,
