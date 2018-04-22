@@ -6,7 +6,7 @@ data class User(
         val name: String,
         val email: String,
         val status: String,
-        @Json(name = "user_settings") val userSettings: UserSettings) {
+        @Json(name = "user_setting") val userSettings: UserSettings? = UserSettings()) {
 
     companion object {
         const val ENABLED = "enabled"
