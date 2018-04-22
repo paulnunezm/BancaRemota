@@ -8,6 +8,10 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.extensions.gone
+import com.nunez.bancaremota.framework.extensions.hide
+import com.nunez.bancaremota.framework.extensions.show
+import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
 import com.nunez.bancaremota.framework.helpers.MessageViewHandler
 import com.nunez.bancaremota.framework.helpers.PreferencesManagerImpl
 import com.nunez.bancaremota.framework.respository.ServiceProvider
@@ -15,10 +19,6 @@ import com.nunez.bancaremota.framework.respository.data.Ticket
 import com.nunez.bancaremota.screens.seller.tickets.ticketDetails.TicketDetails
 import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
-import com.nunez.bancaremota.framework.extensions.gone
-import com.nunez.bancaremota.framework.extensions.hide
-import com.nunez.bancaremota.framework.extensions.show
-import com.nunez.bancaremota.framework.helpers.ConnectivityCheckerImpl
 import com.squareup.moshi.Moshi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.subjects.PublishSubject
@@ -122,7 +122,7 @@ class TicketsFragment : BaseFragment(), TicketsContract.View {
     }
 
     override fun showUnexpectedError() {
-        loadingView.gone()
+        messageViewHandler.showUnexpectedError()
     }
 
     override fun showLoading() {
