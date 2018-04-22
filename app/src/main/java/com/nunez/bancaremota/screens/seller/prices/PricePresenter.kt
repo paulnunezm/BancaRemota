@@ -3,18 +3,17 @@ package com.nunez.bancaremota.screens.seller.prices
 import com.nunez.bancaremota.framework.exceptions.NoConnectionException
 import com.nunez.bancaremota.framework.helpers.PreferencesManager
 import com.nunez.bancaremota.framework.respository.data.User
-import com.nunez.bancaremota.framework.respository.data.UserSettings
 import io.reactivex.disposables.CompositeDisposable
 
 class PricePresenter(
         private val preferencesManager: PreferencesManager,
         private val view: PricesContract.View,
-        private val interactor: PricesInteractor
+        private val interactor: PricesContract.Interactor
 ) : PricesContract.Presenter {
 
     private val compositeDisposable = CompositeDisposable()
 
-    override fun getPrices(prices: UserSettings) {
+    override fun getPrices() {
         view.showLoading()
         compositeDisposable.add(interactor.requestPrices()
                 .subscribe({
@@ -22,7 +21,9 @@ class PricePresenter(
                         onUserDisabled()
                     } else {
                         view.hideLoading()
-                        view.showPrices(it.userSettings)
+                        it?.userSettings?.let {
+                            view.showPrices(it)
+                        }
                     }
 
                 }, {

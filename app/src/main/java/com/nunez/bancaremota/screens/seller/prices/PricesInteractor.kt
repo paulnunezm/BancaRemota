@@ -1,5 +1,6 @@
 package com.nunez.bancaremota.screens.seller.prices
 
+import android.util.Log
 import com.nunez.bancaremota.framework.exceptions.NoConnectionException
 import com.nunez.bancaremota.framework.helpers.ConnectivityChecker
 import com.nunez.bancaremota.framework.respository.BancappService
@@ -15,6 +16,7 @@ class PricesInteractor(
 ) : PricesContract.Interactor {
 
     override fun requestPrices(): Single<User> {
+        Log.d("PricesInteractor","Request prices" )
         return if (connectivityChecker.isConected()) {
             service.getUserInfo()
                     .subscribeOn(Schedulers.io())

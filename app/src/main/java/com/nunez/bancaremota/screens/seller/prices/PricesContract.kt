@@ -16,7 +16,7 @@ interface PricesContract {
     }
 
     interface Presenter {
-        fun getPrices(prices: UserSettings)
+        fun getPrices()
     }
 
     interface Interactor {
