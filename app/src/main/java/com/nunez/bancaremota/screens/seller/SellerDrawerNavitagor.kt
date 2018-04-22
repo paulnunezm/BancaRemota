@@ -9,6 +9,7 @@ import android.view.MenuItem
 import com.nunez.bancaremota.R
 import com.nunez.bancaremota.framework.helpers.PreferencesManager
 import com.nunez.bancaremota.screens.login.LoginActivity
+import com.nunez.bancaremota.screens.seller.prices.PricesFragment
 import com.nunez.bancaremota.screens.seller.sales.SalesFragment
 import com.nunez.bancaremota.screens.seller.stats.StatsFragment
 import com.nunez.bancaremota.screens.seller.tickets.TicketsFragment
@@ -41,6 +42,9 @@ class SellerDrawerNavitagor(
             }
             R.id.tickets ->{
                 replaceFragmentTo(TicketsFragment())
+            }
+            R.id.prices ->{
+                replaceFragmentTo(PricesFragment())
             }
             R.id.logout -> {
                 prefManager.logout()
