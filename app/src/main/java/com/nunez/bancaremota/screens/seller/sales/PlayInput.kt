@@ -3,17 +3,18 @@ package com.nunez.bancaremota.screens.seller.sales
 import android.content.Context
 import android.support.constraint.ConstraintLayout
 import android.util.AttributeSet
+import android.util.Log
 import android.view.KeyEvent
 import android.view.KeyEvent.*
 import android.view.LayoutInflater
 import android.widget.EditText
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.extensions.gone
+import com.nunez.bancaremota.framework.extensions.show
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Pale
 import com.nunez.bancaremota.framework.respository.data.Quiniela
 import com.nunez.bancaremota.framework.respository.data.Tripleta
-import com.nunez.bancaremota.framework.extensions.gone
-import com.nunez.bancaremota.framework.extensions.show
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.input_play.view.*
 
@@ -74,10 +75,14 @@ class PlayInput @JvmOverloads constructor(
         var maxDigitsReached = false
 
         editText.setOnKeyListener { _, keyCode, event ->
+            Log.d(TAG, "key code: $keyCode")
             when {
                 keyCode == KEYCODE_ENTER && event.action == ACTION_UP -> {
                     focusAmountInput()
                     return@setOnKeyListener true
+                }
+                keyCode == KEYCODE_DEL -> {
+                    return@setOnKeyListener false
                 }
                 enteredANumberAfterMaxDigitsPassed(event, maxDigitsReached) -> {
                     val number = event.number
@@ -97,7 +102,7 @@ class PlayInput @JvmOverloads constructor(
     }
 
     private fun enteredANumberAfterMaxDigitsPassed(event: KeyEvent, reached: Boolean): Boolean {
-        return event.action == ACTION_UP && reached && isKeyFromANumber(event)
+            return event.action == ACTION_UP && reached && isKeyFromANumber(event)
     }
 
     private fun isMaxDigitsBeenReached(editText: EditText, action: Int): Boolean {
