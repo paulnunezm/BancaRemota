@@ -8,13 +8,13 @@ import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import android.widget.LinearLayout
 import com.nunez.bancaremota.R
+import com.nunez.bancaremota.framework.extensions.showSnackbar
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Lottery
 import com.nunez.bancaremota.screens.seller.sales.lotterySelector.LotterySelector
 import com.nunez.bancaremota.screens.seller.sales.ticketBrief.TicketBriefFragment
 import com.nunez.palcine.BaseActivity
 import com.nunez.palcine.BaseFragment
-import com.nunez.bancaremota.framework.extensions.showSnackbar
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -68,6 +68,11 @@ class SalesFragment : BaseFragment(), SalesContract.View {
 
     override fun addPlay(game: Game) {
         gameList.add(game)
+        refreshData()
+    }
+
+    override fun erasePlays() {
+        gameList.clear()
         refreshData()
     }
 

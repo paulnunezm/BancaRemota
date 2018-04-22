@@ -1,9 +1,9 @@
 package com.nunez.bancaremota.screens.seller.sales
 
+import com.nunez.bancaremota.framework.exceptions.NoConnectionException
 import com.nunez.bancaremota.framework.exceptions.NotAvailableLotteriesException
 import com.nunez.bancaremota.framework.respository.data.Game
 import com.nunez.bancaremota.framework.respository.data.Lottery
-import com.nunez.bancaremota.framework.exceptions.NoConnectionException
 
 class SalesPresenter(
         private val view: SalesContract.View
@@ -30,8 +30,11 @@ class SalesPresenter(
     }
 
     override fun onSellButtonPressed() {
+        val currentPlays = plays
+        plays.clear()
+        view.erasePlays()
         view.showLoading()
-        view.goToTicketBriefFragment(plays)
+        view.goToTicketBriefFragment(currentPlays)
     }
 
     override fun onPlayDeleted(position: Int) {

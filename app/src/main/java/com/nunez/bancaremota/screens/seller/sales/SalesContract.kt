@@ -7,6 +7,7 @@ import io.reactivex.Observable
 interface SalesContract {
     interface View {
         fun addPlay(games: Game)
+        fun erasePlays()
         fun goToTicketBriefFragment(plays: List<Game>)
         fun hideProcessOrderButton()
         fun observeGameEntry(): Observable<Game>
