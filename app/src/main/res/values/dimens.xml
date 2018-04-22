@@ -7,4 +7,5 @@
     
     <dimen name="unavailable_dialog_width">370dp</dimen>
     <dimen name="unavailable_dialog_height">310dp</dimen>
+    <dimen name="prices_first_container_margin_top">16dp</dimen>
 </resources>

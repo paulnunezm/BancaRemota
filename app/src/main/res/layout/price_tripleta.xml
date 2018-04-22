@@ -15,15 +15,14 @@
 
             <TextView
                 android:id="@+id/tripletaLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/PricesLabel"
                 android:text="Tripleta" />
 
             <LinearLayout
                 android:id="@+id/tripletaFirstContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginTop="@dimen/prices_first_container_margin_top"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toStartOf="@+id/tripletaSecondContainer"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -31,15 +30,13 @@
                 app:layout_constraintTop_toBottomOf="@id/tripletaLabel">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Primera"
+                    style="@style/PriceValueTitle"
+                    android:text="@string/prices_position_first"
                     app:layout_constraintTop_toBottomOf="@id/tripletaLabel" />
 
                 <TextView
+                    style="@style/PricesValue"
                     android:id="@+id/tripletaFirstValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="10.00" />
             </LinearLayout>
 
@@ -47,22 +44,19 @@
                 android:id="@+id/tripletaSecondContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tripletaFirstContainer"
                 app:layout_constraintTop_toTopOf="@id/tripletaFirstContainer">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Segunda"
+                    style="@style/PriceValueTitle"
+                    android:text="@string/prices_position_second"
                     app:layout_constraintTop_toBottomOf="@id/tripletaLabel" />
 
                 <TextView
+                    style="@style/PricesValue"
                     android:id="@+id/tripletaSecondValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     tools:text="10.00" />
 
             </LinearLayout>

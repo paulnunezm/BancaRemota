@@ -15,15 +15,14 @@
 
             <TextView
                 android:id="@+id/paleLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/PricesLabel"
                 android:text="Palé" />
 
             <LinearLayout
                 android:id="@+id/paleFirstContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/prices_first_container_margin_top"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toStartOf="@+id/paleSecondContainer"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -31,15 +30,13 @@
                 app:layout_constraintTop_toBottomOf="@id/paleLabel">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Primera"
+                    style="@style/PriceValueTitle"
+                    android:text="@string/prices_position_first"
                     app:layout_constraintTop_toBottomOf="@id/paleLabel" />
 
                 <TextView
                     android:id="@+id/paleFirstValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/PricesValue"
                     tools:text="10.00" />
             </LinearLayout>
 
@@ -53,15 +50,13 @@
                 app:layout_constraintTop_toTopOf="@id/paleFirstContainer">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Segunda"
+                    style="@style/PriceValueTitle"
+                    android:text="@string/prices_position_second"
                     app:layout_constraintTop_toBottomOf="@id/paleLabel" />
 
                 <TextView
                     android:id="@+id/paleSecondValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/PricesValue"
                     tools:text="10.00" />
 
             </LinearLayout>
