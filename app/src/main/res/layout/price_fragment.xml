@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <include layout="@layout/price_quiniela"/>
+    <include layout="@layout/progress" />
 
-    <include layout="@layout/price_pale"/>
+    <include
+        android:id="@+id/messageContainer"
+        layout="@layout/message" />
 
-    <include layout="@layout/price_tripleta"/>
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
 
-</LinearLayout>
+        <include layout="@layout/price_quiniela" />
+
+        <include layout="@layout/price_pale" />
+
+        <include layout="@layout/price_tripleta" />
+    </LinearLayout>
+</FrameLayout>
