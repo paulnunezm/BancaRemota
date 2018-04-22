@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/quinielaLabel"
+                style="@style/PricesLabel"
+                android:text="Quiniela" />
+
+            <LinearLayout
+                android:id="@+id/quinielaFirstContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/prices_first_container_margin_top"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/quinielaSecondContainer"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/quinielaLabel">
+
+                <TextView
+                    style="@style/PriceValueTitle"
+                    android:text="@string/prices_position_first"
+                    app:layout_constraintTop_toBottomOf="@id/quinielaLabel" />
+
+                <TextView
+                    android:id="@+id/quinielaFirstValue"
+                    style="@style/PricesValue"
+                    tools:text="10.00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/quinielaSecondContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/quinielaThirdContainer"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/quinielaFirstContainer"
+                app:layout_constraintTop_toTopOf="@id/quinielaFirstContainer">
+
+                <TextView
+                    style="@style/PriceValueTitle"
+                    android:text="@string/prices_position_second"
+                    app:layout_constraintTop_toBottomOf="@id/quinielaLabel" />
+
+                <TextView
+                    android:id="@+id/quinielaSecondValue"
+                    style="@style/PricesValue"
+                    tools:text="10.00" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/quinielaThirdContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/quinielaSecondContainer"
+                app:layout_constraintTop_toTopOf="@id/quinielaFirstContainer">
+
+                <TextView
+                    style="@style/PriceValueTitle"
+                    android:text="@string/prices_position_third"
+                    app:layout_constraintTop_toBottomOf="@id/quinielaLabel" />
+
+                <TextView
+                    android:id="@+id/quinielaThirdValue"
+                    style="@style/PricesValue"
+                    tools:text="10.00" />
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</merge>

@@ -88,5 +88,8 @@
     <string name="error_no_available_tickets">No hay tickets disponbles para mostrar</string>
     <string name="tickets_label_games">Jugadas:</string>
     <string name="action_bar_title_winning_numbers">Números ganadores</string>
+    <string name="prices_position_first">Primera</string>
+    <string name="prices_position_second">Segunda</string>
+    <string name="prices_position_third">Tercera</string>
 
 </resources>

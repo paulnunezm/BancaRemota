@@ -123,4 +123,30 @@
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textSize">42sp</item>
     </style>
+
+    <style name="PricesLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/gray_dark</item>
+    </style>
+
+    <style name="PriceValueTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/gray_light</item>
+    </style>
+
+    <style name="PricesValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/gray_dark</item>
+    </style>
 </resources>
