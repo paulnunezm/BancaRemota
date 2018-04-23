@@ -1,4 +1,4 @@
-package com.nunez.palcine.framework.helpers
+package com.nunez.bancaremota.framework.helpers
 
 import android.content.Context
 import android.net.ConnectivityManager

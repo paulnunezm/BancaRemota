@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/sale"
+            android:icon="@drawable/ic_drawer_sales"
+            android:title="@string/seller_screen_drawer_item_sale" />
+        <item
+            android:id="@+id/tickets"
+            android:icon="@drawable/ic_drawer_tickets"
+            android:title="@string/seller_screen_drawer_item_tickets" />
+
+        <item
+            android:id="@+id/winningNumbers"
+            android:icon="@drawable/ic_drawer_winning_numbers"
+            android:title="@string/seller_screen_drawer_item_winning_numbers" />
+
+        <item
+            android:id="@+id/prices"
+            android:icon="@drawable/ic_drawer_prices"
+            android:title="@string/seller_screen_drawer_item_prices" />
+
+        <item
+            android:title="@string/seller_screen_drawer_header_others">
+            <menu>
+                <item
+                    android:id="@+id/stats"
+                    android:icon="@drawable/ic_drawer_stats"
+                    android:title="@string/seller_screen_drawer_item_stats" />
+
+                <item
+                    android:id="@+id/logout"
+                    android:icon="@drawable/ic_drawer_logout"
+                    android:title="@string/seller_screen_drawer_item_logout" />
+            </menu>
+        </item>
+    </group>
+</menu>

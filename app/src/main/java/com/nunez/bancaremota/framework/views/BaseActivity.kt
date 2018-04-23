@@ -16,7 +16,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(layout)
 
         toolbar = toolbarId?.let { this.findViewById(it) }
         toolbar?.let {
@@ -32,5 +32,9 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         drawerManager?.closeDrawerIfOpen()
+    }
+
+    fun changeTitle(title: String){
+        toolbar?.title = title
     }
 }

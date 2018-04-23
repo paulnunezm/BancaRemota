@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/gray_extra_light">
+
+    <com.vipulasri.ticketview.TicketView
+        android:id="@+id/ticketView"
+        android:layout_width="match_parent"
+        android:layout_height="166dp"
+        app:cornerRadius="10dp"
+        app:cornerType="scallop"
+        app:dividerType="dash"
+        app:orientation="horizontal"
+        app:scallopPositionPercent="35"
+        app:scallopRadius="10dp"
+        app:showDivider="true"
+        app:ticketElevation="20dp" />
+
+    <TextView
+        android:id="@+id/number"
+        style="@style/TicketItemText"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="10d9-1jj8-sjas-19xx" />
+
+    <TextView
+        android:id="@+id/status_label"
+        style="@style/TicketItemText"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/tickets_label_status"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/number" />
+
+    <TextView
+        android:id="@+id/status"
+        style="@style/TicketItemText"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/status_label"
+        app:layout_constraintTop_toTopOf="@+id/status_label"
+        tools:text="Por pagar" />
+
+    <TextView
+        android:id="@+id/total_games_label"
+        style="@style/TicketItemText"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/tickets_label_games"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/status" />
+
+    <TextView
+        android:id="@+id/total_games"
+        style="@style/TicketItemText"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/total_games_label"
+        app:layout_constraintTop_toTopOf="@+id/total_games_label"
+        tools:text="5" />
+
+    <TextView
+        android:id="@+id/amount"
+        style="@style/TicketItemText"
+        android:layout_marginEnd="16dp"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/amount_label"
+        tools:text="RD$ 1,040.00" />
+
+    <TextView
+        android:id="@+id/amount_label"
+        style="@style/TicketItemText"
+        android:text="@string/ticket_label_amount"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/amount"
+        app:layout_constraintTop_toTopOf="@+id/status" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="8dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="8dp" />
+
+
+</android.support.constraint.ConstraintLayout>

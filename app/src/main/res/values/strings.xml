@@ -1,3 +1,96 @@
 <resources>
     <string name="app_name">Banca Remota</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="user_prefs">user_prefs</string>
+
+    <string name="login_hint_username">Usuario</string>
+    <string name="login_hint_password">Contraseña</string>
+    <string name="login_txt_login">Iniciar sesión</string>
+    <string name="login_txt_log_in">Iniciar Sesión</string>
+
+    <string name="input_play_hint_first">1ro</string>
+    <string name="input_play_hint_second">2do</string>
+    <string name="input_play_hint_third">3ro</string>
+    <string name="input_play_hint_amount">monto RD$</string>
+    <string name="input_play_error_cant_be_empty">No puede estar vacío</string>
+    <string name="input_play_error_same_numbers">No puede ser igual al %s</string>
+
+    <string name="lottery_selector_msg_select_lottery">Seleccione loterías a jugar:</string>
+    <string name="lottery_selector_msg_select">Seleccionar</string>
+
+    <string name="unavailable_plays_dialog_msg">Las siguientes jugadas no se pueden realizar:</string>
+
+    <string name="seller_screen_username">Vendedor #1</string>
+    <string name="seller_screen_app_company_name">Banca remota</string>
+    <string name="seller_screen_drawer_item_sale">Venta</string>
+    <string name="seller_screen_drawer_item_tickets">Tickets</string>
+    <string name="seller_screen_drawer_item_winning_numbers">Números ganadoes</string>
+    <string name="seller_screen_drawer_item_prices">Valor de premios</string>
+    <string name="seller_screen_drawer_item_logout">Cerrar sesión</string>
+    <string name="seller_screen_drawer_header_others">Otros</string>
+    <string name="seller_screen_drawer_item_stats">Cuadre</string>
+
+    <string name="sale_screen_total_amount">Total: $%s</string>
+    <string name="sale_message_erased_play">La jugada fue borrada!</string>
+
+    <string name="stats_label_sales">Ventas</string>
+    <string name="stats_commission">Comisión</string>
+    <string name="stats_label_prices">Premios</string>
+    <string name="stats_label_total">Balance Total</string>
+    <string name="stats_txt_stats">Cuadre</string>
+
+    <string name="seller_screen_drawer_item_commissions">Cuadre</string>
+
+    <string name="tickets_hint_search_by_id">Buscar ticket por ID</string>
+    <string name="tickets_search_action">Buscar ticket</string>
+    <string name="tickets_label_number">Número de ticket:</string>
+    <string name="tickets_label_status">Estado:</string>
+    <string name="ticket_label_amount">Valor:</string>
+    <string name="tickets_msg_winner">Premiado</string>
+    <string name="tickets_msg_blocked">Blockeado</string>
+    <string name="tickets_msg_paid">Pagado</string>
+    <string name="tickets_msg_played">Jugado</string>
+    <string name="ticket_msg_details">Detalles</string>
+    <string name="ticket_btn_pay">PAGAR</string>
+    <string name="ticket_btn_print">imprimir</string>
+
+    <string name="ticket_status_paid">Pagado</string>
+    <string name="ticket_status_blocked">Blockeado</string>
+    <string name="ticket_status_printed">Impreso</string>
+    <string name="ticket_status_unprinted">Sin imprimir</string>
+    <string name="ticket_status_winner">Premiado</string>
+    <string name="ticket_pay_bottom_sheet_to_pay_msg">Total a pagar:</string>
+    <string name="ticket_pay_bottom_sheet_error_msg_payment_unsuccessful">No se ha podido realizar el pago!\nPor favor intente más tarde.</string>
+
+    <string name="error_message_unexpected_error">Oh! ha ocurrido un error! \nPor favor intente más tarde</string>
+    <string name="error_message_no_connection">No encontramos conexión a Internet! \nPor favor intente más tarde</string>
+    <string name="error_message_login">Hubo un error al tratar de iniciar sesión! \nRevise sus datos o intente más tarde</string>
+    <string name="error_message_blocked_user">Su usario está bloqueado!</string>
+    <string name="error_message_no_available_lotteries">No hay loterías disponibles!\nPor favor intente más tarte</string>
+    <string name="error_message_must_select_at_least_one_lottery">¡Debe de seleccionar al menos una lotería!</string>
+    <string name="error_message_no_available_plays">No hay jugadas válidas disponibles para jugar</string>
+    <string name="error_no_available_winning_numbers">Aún hay números ganadores para el día de hoy</string>
+
+    <string name="action_bar_title_sales">Venta de tickets</string>
+    <string name="action_bar_title_ticket_brief">Comprobante</string>
+    <string name="action_bar_title_tickets">Tickets</string>
+
+    <string name="format_amount">$%s</string>
+
+    <string name="game_header_lottery">Lotería</string>
+    <string name="game_header_type">Tipo</string>
+    <string name="game_header_plays">Jugadas</string>
+    <string name="game_header_amount">Monto</string>
+
+    <string name="ticket_brief_number">Número de ticket:</string>
+    <string name="ticket_brief_total_amout">Monto Total:</string>
+    <string name="ticket_brief_unavailable_dialog_ok">Entendido</string>
+    <string name="error_no_available_tickets">No hay tickets disponbles para mostrar</string>
+    <string name="tickets_label_games">Jugadas:</string>
+    <string name="action_bar_title_winning_numbers">Números ganadores</string>
+    <string name="prices_position_first">Primera</string>
+    <string name="prices_position_second">Segunda</string>
+    <string name="prices_position_third">Tercera</string>
+
 </resources>

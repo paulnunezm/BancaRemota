@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="8dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context=".screens.seller.SellerActivity"
+    android:background="@color/gray_extra_light">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ticketsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/item_ticket"/>
+
+    <include layout="@layout/progress"/>
+
+    <include
+        android:id="@+id/messageContainer"
+        layout="@layout/message"/>
+</FrameLayout>

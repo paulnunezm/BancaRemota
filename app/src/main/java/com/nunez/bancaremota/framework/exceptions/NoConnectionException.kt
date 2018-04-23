@@ -1,3 +1,3 @@
-package com.nunez.palcine.framework.exceptions
+package com.nunez.bancaremota.framework.exceptions
 
 class NoConnectionException : Exception("No connection available")

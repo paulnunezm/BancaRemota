@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refreshContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/progress" />
+
+        <include
+            android:id="@+id/messageContainer"
+            layout="@layout/message" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                style="@style/StatsTitle"
+                android:id="@+id/statsTxt"
+                android:text="@string/stats_txt_stats"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/salesLabel"
+                style="@style/StatsLabel"
+                android:text="@string/stats_label_sales"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/statsTxt" />
+
+            <TextView
+                android:id="@+id/salesValue"
+                style="@style/StatsAmount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/salesLabel"
+                tools:text="2,000.00" />
+
+            <TextView
+                android:id="@+id/commissionLabel"
+                style="@style/StatsLabel"
+                android:text="@string/stats_commission"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/salesValue" />
+
+            <TextView
+                android:id="@+id/commissionValue"
+                style="@style/StatsAmount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/commissionLabel"
+                tools:text="500.00" />
+
+            <TextView
+                android:id="@+id/pricesLabel"
+                style="@style/StatsLabel"
+                android:text="@string/stats_label_prices"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/commissionValue" />
+
+            <TextView
+                android:id="@+id/pricesValue"
+                style="@style/StatsAmount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pricesLabel"
+                tools:text="300.00" />
+
+            <TextView
+                android:id="@+id/totalLabel"
+                style="@style/StatsLabel"
+                android:text="@string/stats_label_total"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pricesValue" />
+
+            <TextView
+                android:id="@+id/totalValue"
+                style="@style/StatsAmount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalLabel"
+                tools:text="200.00" />
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
+
+
+</android.support.v4.widget.SwipeRefreshLayout>

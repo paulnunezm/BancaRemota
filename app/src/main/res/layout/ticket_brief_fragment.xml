@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_extra_light"
+    android:paddingTop="4dp">
+
+
+    <com.vipulasri.ticketview.TicketView
+        android:id="@+id/ticketView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cornerRadius="10dp"
+        app:cornerType="scallop"
+        app:dividerType="dash"
+        app:orientation="horizontal"
+        app:scallopPositionPercent="14"
+        app:scallopRadius="10dp"
+        app:showDivider="true"
+        app:ticketElevation="20dp" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="4dp"
+        android:paddingEnd="22dp"
+        android:paddingStart="22dp"
+        android:paddingTop="18dp">
+
+        <TextView
+            android:id="@+id/ticktNumberLabel"
+            style="@style/TicketBriefLabel"
+            android:text="@string/ticket_brief_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ticketNumber"
+            style="@style/TicketBriefValue"
+            android:layout_width="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toStartOf="@+id/totalAmount"
+            app:layout_constraintStart_toStartOf="@+id/ticktNumberLabel"
+            app:layout_constraintTop_toBottomOf="@+id/ticktNumberLabel"
+            tools:text="abds-woiew-d9s0-dkoas" />
+
+        <TextView
+            android:id="@+id/totalLabel"
+            style="@style/TicketBriefLabel"
+            android:text="@string/ticket_brief_total_amout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/totalAmount"
+            style="@style/TicketTotalAmount"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/totalLabel"
+            app:layout_constraintTop_toBottomOf="@+id/totalLabel"
+            tools:text="$200.0" />
+
+
+        <LinearLayout
+            android:id="@+id/salesHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ticketNumber">
+
+            <include layout="@layout/sales_header" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/availablePlaysRecycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/salesHeader"
+            tools:listitem="@layout/item_sales_game" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/printButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_print_24dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="visible" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <include layout="@layout/progress" />
+
+    <include
+        android:id="@+id/messageContainer"
+        layout="@layout/message"
+        android:visibility="gone" />
+
+</FrameLayout>
