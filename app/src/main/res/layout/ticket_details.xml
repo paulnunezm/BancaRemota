@@ -41,7 +41,7 @@
         <TextView
             android:id="@+id/ticket_number_label"
             style="@style/TicketBriefLabel"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="12dp"
             android:text="@string/tickets_label_number"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,22 +65,21 @@
             android:layout_marginTop="8dp"
             android:text="@string/tickets_label_status"
             app:layout_constraintStart_toStartOf="@id/ticket_number"
-            app:layout_constraintTop_toBottomOf="@id/ticket_number" />
+            app:layout_constraintTop_toBottomOf="@id/ticket_amount" />
 
         <TextView
             android:id="@+id/ticket_amount_label"
             style="@style/TicketBriefLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
             android:text="@string/ticket_brief_total_amout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ticket_number_label" />
+            app:layout_constraintTop_toBottomOf="@id/ticket_number"
+            app:layout_constraintStart_toStartOf="@id/ticket_number"  />
 
         <TextView
             android:id="@+id/ticket_amount"
             style="@style/TicketTotalAmount"
-            app:layout_constraintEnd_toEndOf="@+id/ticket_amount_label"
+            app:layout_constraintStart_toStartOf="@+id/ticket_amount_label"
             app:layout_constraintTop_toBottomOf="@+id/ticket_amount_label"
             tools:text="RD$1,2340" />
 
@@ -125,6 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ticket_btn_pay"
+                android:layout_marginBottom="8dp"
                 android:theme="@style/ButtonColored" />
 
             <Button
@@ -132,6 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ticket_btn_print"
+                android:layout_marginBottom="8dp"
                 android:theme="@style/ButtonColored" />
         </LinearLayout>
 
