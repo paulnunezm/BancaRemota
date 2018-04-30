@@ -31,10 +31,10 @@ class SalesPresenter(
 
     override fun onSellButtonPressed() {
         val currentPlays = plays
-        plays.clear()
         view.erasePlays()
         view.showLoading()
         view.goToTicketBriefFragment(currentPlays)
+        plays.clear()
     }
 
     override fun onPlayDeleted(position: Int) {
