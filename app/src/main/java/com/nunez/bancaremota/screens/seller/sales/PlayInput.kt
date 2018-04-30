@@ -149,8 +149,6 @@ class PlayInput @JvmOverloads constructor(
     private fun areTheValuesCorrectForCreatingAGame(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?, amountPerPlay: Float?): Boolean {
         if (!checkIfNeededValuesAreSet(firstNumber, secondNumber, thirdNumber, amountPerPlay)) {
             return false
-        } else if (areEqualNumbersOnInputs(firstNumber, secondNumber, thirdNumber)) {
-            return false
         }
         return true
     }
@@ -169,37 +167,6 @@ class PlayInput @JvmOverloads constructor(
 
         return true
     }
-
-    private fun areEqualNumbersOnInputs(firstNumber: Int?, secondNumber: Int?, thirdNumber: Int?): Boolean {
-
-        if (thirdNumber != null) {
-            if (firstNumber == thirdNumber) {
-                third.error = context.getString(R.string.input_play_error_same_numbers, "Primero")
-                return true
-            } else {
-                third.error = null
-            }
-
-            if (secondNumber == thirdNumber) {
-                third.error = context.getString(R.string.input_play_error_same_numbers, "Segundo")
-                return true
-            } else {
-                third.error = null
-            }
-        }
-
-        if (secondNumber != null) {
-            if (firstNumber == secondNumber) {
-                second.error = context.getString(R.string.input_play_error_same_numbers, "Primero")
-                return true
-            } else {
-                second.error = null
-            }
-        }
-
-        return false
-    }
-
 
     private fun setError(input: EditText, stringResourceId: Int) {
         input.error = getStringResource(stringResourceId)
